@@ -1,0 +1,18 @@
+{
+  "games": [
+    {
+      "name": "gamename",
+      "title": "My Cool Game!",
+      "desc": "Hi my cool game :3",
+      "desc_long": "Once upon a time... etc. etc.",
+      "link": "https://example.com/gamename"
+    },
+    {
+      "name": "evencoolergamename",
+      "title": "Even Cooler Game!",
+      "desc": "Welcome to my even cooler game!",
+      "desc_long": "In a world full of excitement... etc. etc.",
+      "link": "https://example.com/evencoolergamename"
+    }
+  ]
+}
