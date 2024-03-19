@@ -1,11 +1,11 @@
 {
   "games": [
     {
-      "name": "gamename",
-      "title": "My Cool Game!",
-      "desc": "Hi my cool game :3",
-      "desc_long": "Once upon a time... etc. etc.",
-      "link": "https://example.com/gamename"
+      "name": "tpp",
+      "title": "The Pandora Project.",
+      "desc": "Sci-Fi Puzzle Game",
+      "desc_long": "uhm, i have no idea what to put here yet so il just lorem ipsum this lol\nLorem ipsum dolor sit amet, consectetur adipiscing elit. Integer convallis quam nec augue hendrerit, quis tristique leo vestibulum. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Sed venenatis consectetur velit, nec venenatis risus. Curabitur nec condimentum nulla. Nam malesuada lectus vel metus pretium, vel dapibus nulla malesuada. Donec condimentum metus id elit congue, nec tempor magna fringilla. Phasellus consectetur nisi sed libero aliquet ultrices. Morbi eget felis sed mi ullam",
+      "link": "https://its-korin.itch.io/the-pandora-project"
     },
     {
       "name": "evencoolergamename",
