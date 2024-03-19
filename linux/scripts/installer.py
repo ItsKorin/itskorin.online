@@ -16,7 +16,7 @@ def install_utils(utils_option):
 def install_codecs(codecs_option):
     codecs_packages = {
         'a': 'ubuntu-restricted-extras',
-        'b': 'ffmpeg',
+        'b': 'ffmpeg'
         # Add more options as needed
     }
     if codecs_option in codecs_packages:
@@ -28,7 +28,7 @@ def install_browsers(browsers_option):
     browsers_packages = {
         'a': 'chromium-browser',
         'b': 'brave-browser',
-        'c': 'firefox',
+        'c': 'firefox'
         # Add more options as needed
     }
     if browsers_option in browsers_packages:
