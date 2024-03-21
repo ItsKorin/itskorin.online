@@ -1,144 +1,196 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
-    <meta charset="utf-8">
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Korin | Home</title>
+    <title>Korin</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+body {
+    /* Animated gradient background */
+    background: linear-gradient(45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+    background-size: 400% 400%;
+    animation: gradientAnimation 15s ease infinite;
+    color: #fff;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+}
+
+@keyframes gradientAnimation {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+        /* Navbar */
+        nav {
+            background-color: rgba(54, 54, 79, 0.8); /*#36364f;*/
+            padding: 20px;
+            text-align: center;
+            position: fixed;
+            width: 100%;
+            z-index: 1000;
+            
+        }
+
+        nav ul {
+            margin: 0;
+            padding: 0;
+            list-style-type: none;
+        }
+
+        nav ul li {
+            display: inline;
+            margin: 0 15px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: #fff;
+            font-weight: bold;
+            transition: all 0.3s ease;
+        }
+
+        nav ul li a:hover {
+            color: #8a2be2;
+            filter:blur(5px);
+        }
+
+        /* Header */
+        header {
+            text-align: center;
+            padding-top: 100px;
+            filter:drop-shadow(2px 2px 5px)
+        }
+
+        header h1 {
+            font-size: 3em;
+            margin-bottom: 20px;
+        }
+
+        header p {
+            font-size: 1.2em;
+        }
+
+        /* About Section */
+        #section_ {
+            padding: 100px 0;
+        }
+
+        #section_ h2 {
+            text-align: center;
+            margin-bottom: 50px;
+            filter:drop-shadow(2px 2px 5px)
+        }
+
+        #section_ .container {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .info-card {
+            background-color: rgba(54, 54, 79, 0.2); /*#36364f;*/
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            width: 300px;
+            margin-bottom: 30px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+        }
+
+        .info-card h3 {
+            filter:drop-shadow(2px 2px 5px);
+            color: #8a2be2;
+            margin-bottom: 10px;
+        }
+
+        .info-card p {
+            color: #fff;
+            font-size: 1.1em;
+        }
+
+        /* Footer */
+        footer {
+            background-color: rgba(54, 54, 79, 0.7); /*#36364f;*/
+            text-align: center;
+            padding: 20px 0;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+        }
+
+        footer p {
+            color: #fff;
+            filter:drop-shadow(5px 5px 5px);
+        }
+    </style>
 </head>
 
 <body>
-    <main>
-        <h1>Korin</h1>
-        <hr>
-        <p>Hey, I'm Korin!</p>
-        <p>Check out my:</p>
+    <nav>
         <ul>
-            <li><a href="desktop-apps/">Desktop Apps</a></li>
-            <br>
-            <li><a href="android-apps/">Android Apps</a></li>
-            <br>
-            <li><a href="https://github.com/itskorin">GitHub</a></li>
-            <br>
-            <li><a href="https://discord.gg/4vFk9pkJxX">Discord</a></li>
-            <br>
-            <li><a href="pc-setup/">PC Setup</a></li>
-            <br>
-            <li><a href="coding-environment/">Coding Environment (Linux / Windows)</a></li>
-            <br>
+            <li><a href="#about">About</a></li>
+            <li><a href="#portfolio">Portfolio</a></li>
+            <li><a href="#contact">Contact</a></li>
         </ul>
-        <hr>
-        <p>Contact: <a href="mailto:korin@itskorin.online">korin@itskorin.online</a></p>
-        <a href="https://itskorin.online" id="home-btn">Home</a>
-        
-    </main>
+    </nav>
 
-   <div id="bg"></div>
+    <header>
+        <h1>Welcome to Korin's Corner on the Web!</h1>
+        <p>A place for my projects and stuff</p>
+    </header>
+
+    <section id="section_">
+        <div class="container">
+            <div class="info-card">
+                <h3>About Me</h3>
+                <p>Hey, I'm Korin! I'm a programmer 🖥 , musician 🎺  and pixel artist! 🖌</p>
+            </div>
+        </div>
+    </section>
+    <section id="section_">
+        <div class="container">
+            <div class="info-card" name="portfolio">
+                <h3>Portfolio 📑</h3>
+                <p>Coming Soon!</p>
+            </div>
+        </div>
+    </section>
+    <section id="section_">
+        <div class="container">
+            <div class="info-card">
+                <h3>Contact 📞 </h3>
+                <p>Coming Soon!</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="section_">
+        <div class="container">
+            <div class="info-card">
+                <h3>My PC Specs 🖥 </h3>
+                    <b>CPU</b>: i3-4160 <br>
+                    <b>GPU</b>: nVidia GTX 1060 6GB <br>
+                    <b>OS</b>: Linux Mint<br>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 Korin. All rights reserved.</p>
+    </footer>
 </body>
-
-<style>
-    @import url('https://fonts.googleapis.com/css?family=Spline%20Sans:700|Spline%20Sans:400');
-    body {
-        font-family: 'Spline Sans', sans-serif;
-        font-weight: 400;
-        background-color: black;
-        color: #fff;
-
-        -webkit-user-select: none;
-        -moz-user-select: none;
-        -ms-user-select: none;
-        user-select: none;
-    }
-
-    #home-btn {
-        position: fixed;
-        top: 0;
-        left: 0;
-        padding: 25px;
-    }
-
-    .allow-select {
-        -webkit-user-select: text;
-        -moz-user-select: text;
-        -ms-user-select: text;
-        user-select: text;
-    }
-
-    a{
-        color: rgba(255, 88, 139, 1);
-    }
-    a:hover{
-        color: rgba(255, 88, 139, 0.4);
-        text-decoration: wavy underline;
-        transition: color;
-        transition-duration: 0.2s;
-    }
-    a:visited{
-        color: rgba(255, 88, 10, 1);
-    }
-
-
-    hr {
-        width: 75%;
-        border-style: solid;
-        border-color: white;
-    }
-
-    main {
-        margin: auto;
-        width: 70%;
-        background-color: rgba(255, 255, 255, 0.2);
-        color: rgb(215, 215, 215);
-        border-radius: 15px;
-        padding: 15px;
-        margin-top: 15%;
-    }
-
-    #bg {
-  position: fixed;
-  top: 0;
-  bottom: 0;
-  right: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  opacity: 0.5;
-  width: 400px;
-  aspect-ratio: 1/1;
-  animation: animate 10s cubic-bezier(0.68, -0.55, 0.27, 1.55) infinite
-    alternate forwards;
-  filter: blur(120px);
-  z-index: -1;
-  background: linear-gradient(
-    47deg,
-    rgba(255, 88, 139, 1) 21%,
-    rgb(0 164 173) 67%,
-    rgba(118, 74, 166, 1) 81%
-  );
-
-  /*  Optional  */
-  /*   box-shadow: inset 50px 50px 17px 0px #ff588b,
-    inset 100px 100px 17px 0px #66319f; */
-}
-@keyframes animate {
-  0% {
-    translate: 40% -25%;
-    border-radius: 60% 40% 30% 70% / 100% 85% 92% 74%;
-  }
-  50% {
-    translate: 0% 13%;
-    border-radius: 20% 71% 47% 70% / 81% 15% 22% 54%;
-    rotate: 41deg;
-    scale: 1.15;
-  }
-  100% {
-    translate: -45% 39%;
-    border-radius: 100% 75% 92% 74% / 60% 80% 30% 70%;
-    rotate: -60deg;
-    scale: 1.05;
-  }
-}
-
- 
-</style>
 
 </html>
