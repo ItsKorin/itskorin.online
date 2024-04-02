@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recipe Finder - Search for a Meal</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <style>
+        /* Additional styles for random recipes */
+        #randomRecipes {
+            margin-top: 50px;
+        }
+
+        #randomRecipes h2 {
+            color: #69c3ff; /* Change color scheme for random recipes */
+        }
+
+        #randomRecipes .meal {
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            padding: 10px;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+
+        #randomRecipes .meal:hover {
+            transform: scale(1.05);
+        }
+
+        #randomRecipes .meal img {
+            width: 100%;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Quick Cook Book</h1>
+    <hr width="50px">
+    <center><button onclick="window.location.href = 'search.html';" style="width: 50%;">Search</button></center>
+
+    <div id="desc">
+        <p>This is a simple Recipe browser i made in 1 hour</p>
+    </div>
+</body>
+</html>
