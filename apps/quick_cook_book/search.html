@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recipe Finder - Search for a Meal</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <style>
+        /* Additional styles for random recipes */
+        #randomRecipes {
+            margin-top: 50px;
+        }
+
+        #randomRecipes h2 {
+            color: #69c3ff; /* Change color scheme for random recipes */
+        }
+
+        #randomRecipes .meal {
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            padding: 10px;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+
+        #randomRecipes .meal:hover {
+            transform: scale(1.05);
+        }
+
+        #randomRecipes .meal img {
+            width: 100%;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Search for a Meal</h1>
+    <form id="searchForm">
+        <label for="name">Enter meal name:</label>
+        <input type="text" id="name" name="name">
+        <button type="submit">Search</button>
+    </form>
+
+    <div id="results"></div>
+    <ul id="mealList"></ul>
+
+    <div id="randomRecipes">
+        <h2>Random Recommended Recipe</h2>
+        <ul id="randomMealList"></ul>
+    </div>
+
+    <script src="script.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const randomMealList = document.getElementById('randomMealList');
+
+            // Function to display random recipes
+            const displayRandomMeals = (meals) => {
+                meals.forEach(meal => {
+                    const listItem = document.createElement('li');
+                    listItem.classList.add('meal');
+
+                    const mealName = document.createElement('h3');
+                    mealName.textContent = meal.strMeal;
+                    listItem.appendChild(mealName);
+
+                    const mealImage = document.createElement('img');
+                    mealImage.src = meal.strMealThumb;
+                    mealImage.alt = meal.strMeal;
+                    mealImage.style.width = "200px";
+                    listItem.appendChild(mealImage);
+
+                    listItem.addEventListener('click', () => {
+                        window.location.href = `more.html?id=${meal.idMeal}`;
+                    });
+
+                    randomMealList.appendChild(listItem);
+                });
+            };
+
+            // Fetch 10 random meals on page load
+            fetch('https://www.themealdb.com/api/json/v1/1/random.php')
+                .then(response => response.json())
+                .then(data => {
+                    const randomMeals = data.meals.slice(0, 10); // Get first 10 random meals
+                    displayRandomMeals(randomMeals);
+                })
+                .catch(error => console.error('Error:', error));
+        });
+    </script>
+</body>
+</html>
