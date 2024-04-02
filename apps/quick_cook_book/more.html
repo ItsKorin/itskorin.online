@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>More Details</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <style>
+        /* CSS styles for better readability */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f8f8f8;
+            padding: 20px;
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        #mealDetails {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+        }
+
+        #mealDetails h2 {
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+
+        #mealDetails img {
+            display: block;
+            margin: 0 auto 20px;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        #mealDetails p {
+            line-height: 1.6;
+            margin-bottom: 10px;
+        }
+
+        /* Style for the ingredients section */
+        #ingredients {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        #ingredients h2 {
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+
+        #ingredients ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        #ingredients li {
+            margin-bottom: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <button onclick="window.location.href = 'search.html';">Back</button>
+        <h1>More Details</h1>
+
+        <div id="mealDetails">
+            <h2>Meal Info</h2>
+            <div id="mealContent"></div>
+        </div>
+
+        <div id="ingredients">
+            <h2>Ingredients</h2>
+            <ul id="ingredientsList"></ul>
+        </div>
+        <button onclick="window.location.href = 'search.html';">Back</button>
+
+    </div>
+
+    <script src="script.js"></script>
+    <script>
+        // Get the meal ID from the query parameter
+        const urlParams = new URLSearchParams(window.location.search);
+        const mealId = urlParams.get('id');
+
+        // Fetch meal details using the meal ID
+        fetch(`https://www.themealdb.com/api/json/v1/1/lookup.php?i=${mealId}`)
+        .then(response => response.json())
+        .then(data => {
+            const mealDetails = data.meals[0]; // Assuming the API returns a single meal detail
+            
+            // Display ingredients section
+            const ingredientsList = document.getElementById('ingredientsList');
+            
+            // Loop through ingredients and quantities and display them in the list
+            for (let i = 1; i <= 20; i++) { // Assuming maximum of 20 ingredients
+                const ingredient = mealDetails[`strIngredient${i}`];
+                const measure = mealDetails[`strMeasure${i}`];
+                if (ingredient && ingredient.trim() !== '') {
+                    const listItem = document.createElement('li');
+                    listItem.textContent = `${ingredient} (${measure || 'N/A'})`;
+                    ingredientsList.appendChild(listItem);
+                } else {
+                    break; // Stop loop when no more ingredients
+                }
+            }
+
+            // Display meal details section
+            const mealContent = document.getElementById('mealContent');
+
+            // Create elements to display meal details
+            const mealName = document.createElement('h2');
+            mealName.innerHTML = mealDetails.strMeal.replace(/[A-Z]/g, '<strong>$&</strong>');
+
+            mealName.style.textAlign = "center";
+            mealName.style.fontSize = "32px";
+            mealContent.appendChild(mealName);
+
+            const mealImage = document.createElement('img');
+            mealImage.src = mealDetails.strMealThumb;
+            mealImage.alt = mealDetails.strMeal;
+            mealImage.width = 300; // Set the width of the image
+            mealContent.appendChild(mealImage);
+
+            const instructions = document.createElement('p');
+            instructions.innerHTML = mealDetails.strInstructions.replace(/\n/g, "<br>");
+            mealContent.appendChild(instructions);
+
+            // Add more details as needed (e.g., category, area, etc.)
+        })
+        .catch(error => console.error('Error:', error));
+    </script>
+</body>
+</html>
