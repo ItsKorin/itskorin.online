@@ -8,7 +8,7 @@ url: https://itskorin.online/
 
 
 # For a project page here should be a project name. Otherwise (for user's/organization's page leave it empty)
-baseurl: '/jekyll-clean-dark'
+baseurl: 
 
 author: Korin
 copyright: 2020-2024
