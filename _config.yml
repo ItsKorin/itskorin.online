@@ -1,56 +1,29 @@
-# Jekyll configuration
-
-name: Korin
-description: Software / Game Developer
-
-# Url is currently only used only for the RSS feed in feed.xml
-url: https://itskorin.online/
-
-
-# For a project page here should be a project name. Otherwise (for user's/organization's page leave it empty)
-baseurl: 
-
+# Site Settings
+title: Korin
+description: Developer and Photographer from Europe
 author: Korin
-copyright: 2020-2024
+email: korin@itskorin.online
+baseurl: ""
+url: "https://itskorin.online"
 
-share:
-  facebook: false
-  twitter: false
-  gplus: false
-  linkedin: false
-  pinterest: false
-  email: true
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag
+
+seo:
+  description: Developer and Photographer from Europe
+  author: Korin
+
+navigation:
+  - title: Games
+    url: /#games
+  - title: Photos
+    url: /#photos
+  - title: About Me
+    url: /#about
+  - title: Contact
+    url: /#contact
 
 social:
-  github: itskorin
-  stackoverflow: ''
-  linkedin:
-  instagram: ''
-  lastfm: ''
-  rss: feed.xml
-
-# Google Analytics key, leave blank to ignore
-google_analytics_key:
-# Yandex metrica (https://metrica.yandex.com/) leave blank to ignore or put true to use
-yandex_metrica:
-
-
-# Set this to your disqus shortname to enable comments. Note that the 'comments'
-# setting below must also be true. Individual posts can override 'comments' to
-# disable on a post-by-post basis
-disqus: 
-comments: false
-
-permalink: /:year/:month/:title/
-
-# Enable for using pages, more details are here: http://jekyllrb.com/docs/pagination/
-#paginate: 3
-
-#highlighter: rouge
-
-markdown: kramdown
-kramdown:
-  input: GFM # Enable GitHub Flavored Markdown (fenced code blocks)
-  hard_wrap: true
-
-exclude: ['README.md', 'LICENSE']
+  twitter: ItsKowwin
+  github: ItsKorin
