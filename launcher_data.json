@@ -1,5 +1,9 @@
 {
     "launcher_version": "0.0.1",
+    "fallback_data": {
+        "icon": "launcher/assets/icon.png",
+        "banner": "launcher/assets/banner.png"
+    },
     "games": [
         {
             "id": "skulls_and_bones",
