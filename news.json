@@ -1,0 +1,9 @@
+{
+    "news": [
+        {
+            "date": "2025-01-12",
+            "title": "New Launcher!",
+            "content": "After a lot of time, im getting back to gamedev, as a start i created this launcher, where you will get news and games from!"
+        }
+    ]
+}

@@ -1,0 +1,31 @@
+{
+    "launcher_version": "0.0.1",
+    "games": [
+        {
+            "id": "skulls_and_bones",
+            "name": "Skulls and Bones",
+            "version": "0.0.1-Preview",
+            "decription": "A rougelike adventure game.",
+            "icon": "assets/icon.png",
+            "banner": "assets/banner.png",
+            "executable": "SkullsAndBones.exe",
+            "release_date": "2025-01-31",
+            "last_update_date": "2025-01-31",
+            "tags": ["rougelike", "dungeon", "adventure"],
+            "status": "unreleased"
+        },
+        {
+            "id": "squambumble",
+            "name": "Squambumble",
+            "version": "0.8.3-beta",
+            "description": "A silly, fun, and platforming game.",
+            "icon": "assets/icon.png",
+            "banner": "assets/banner.jpg",
+            "executable": "Squambumble.exe",
+            "release_date": "2025-04-04",
+            "last_update_date": "2025-04-04",
+            "tags": ["puzzle", "silly", "fun"],
+            "status": "in_development"
+          }
+    ]
+}
