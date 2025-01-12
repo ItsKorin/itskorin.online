@@ -4,82 +4,21 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Korin</title>
-    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <header>
-        <h1>Korin</h1>
-    </header>
-    <div class="container">
-        <nav>
-            <ul>
-                <li><a href="#games">Games</a></li>
-                <li><a href="#photos">Photos</a></li>
-                <li><a href="#about">About Me</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-        </nav>
-        <main>
-            <section id="games">
-                <h2>Games</h2>
-                <div class="game" id="game1">
-                    <h2>The Pandora Project</h2>
-                    <div class="images">
-                        <img src="https://media.moddb.com/cache/images/games/1/85/84922/thumb_620x2000/2.png" alt="Game 1 Screenshot">
-                        <img src="https://media.moddb.com/cache/images/games/1/85/84922/thumb_620x2000/Control-V.png" alt="Game 1 Screenshot">
-                        <img src="https://media.moddb.com/cache/images/games/1/85/84922/thumb_620x2000/Control-V.2.png" alt="Game 1 Screenshot">
-                        <img src="https://media.moddb.com/cache/images/games/1/85/84922/thumb_620x2000/Control-V.3.png" alt="Game 1 Screenshot">
-                        <!-- Add more images if needed -->
-                    </div>
-                    <div class="buttons-container">
-                        <button class="nav-button button inactive" id="back-btn" onclick="showPreviousGame()">⬅️</button>
-                        <button class="button download inactive" id="download-btn">Download</button>
-                        <button class="nav-button button inactive" id="next-btn" onclick="showNextGame()">➡️</button>
-                    </div>
-                </div><!--
-                <div class="game" id="game2" style="display:none;">
-                    <h2>Game Title 2</h2>
-                    <div class="images">
-                        <img src="images/game2.png" alt="Game 2 Screenshot">
-                    </div>
-                    <div class="buttons-container">
-                        <button class="nav-button button inactive" id="back-btn" onclick="showPreviousGame()">⬅️</button>
-                        <button class="button download inactive" id="download-btn">Download</button>
-                        <button class="nav-button button inactive" id="next-btn" onclick="showNextGame()">➡️</button>
-                    </div>
-                </div>-->
-                <!-- Add more games similarly -->
-            </section>
-            <section id="photos">
-                <h2>Photos</h2>
-                <div class="photo" id="photo1">
-                    <h3>No photos yet lol</h3>
-                    <div class="images">
-                        <img src="images/photo1.png" alt="NaN">
-                        <!-- Add more images if needed -->
-                    </div>
-                    <div class="buttons-container">
-                        <button class="nav-button button inactive" id="photo-back-btn" onclick="showPreviousPhoto()">⬅️</button>
-                        <button class="nav-button button inactive" id="photo-next-btn" onclick="showNextPhoto()">➡️</button>
-                    </div>
-                </div>
-                <!-- Add more photos similarly -->
-            </section>
-            <section id="about">
-                <h2>About Me</h2>
-                <p>Hi, I'm Korin! I'm a game and software developer. I enjoy creating cool projects and exploring new technologies. Check out some of my <a href="#games">games!</a></p>
-                <!-- Add more information about yourself here -->
-            </section>
-            <section id="contact">
-                <h2>Contact</h2>
-                <p>You can reach me at <a href="mailto:korin@itskorin.online">korin@itskorin.online</a></p>
-                <!-- Add more contact details here -->
-            </section>
-        </main>
+    <div id="terminal">
+        <div id="header"></div>
+        <div id="layout">
+            <div id="sidebar"></div>
+            <div id="main-content"></div>
+        </div>
+        <div id="footer">
+            A_WEBSITE_BY_KORIN_©_2024
+        </div>
     </div>
-    <footer>
-        <p>&copy; 2024 Korin's Website</p>
-    </footer>
-    <script src="js/scripts.js" defer></script>
+    <script src="themes.js"></script>
+    <script src="pages.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>
