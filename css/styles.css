@@ -8,6 +8,7 @@ body {
     /*background: linear-gradient(135deg, #1a1a1a, #0d0d0d);*/
     background: url("../assets/hero-bg.png") no-repeat center center;
     background-size: cover;
+
     color: #ffffff;
     overflow-x: hidden;
   }
