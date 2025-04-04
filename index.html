@@ -1,63 +1,69 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Korin - Game Dev & Artist</title>
-  <link rel="stylesheet" href="./css/styles.css">
-  <link rel="icon" type="image/x-icon" href="./assets/favicon.ico">
-  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+<title>korin</title>
+<style>
+body {
+  max-width: 600px;
+  padding: 20px;
+  line-height: 1.5;
+}
+a {
+  color: #0066cc;
+  text-decoration: none;
+}
+a:hover {
+  text-decoration: underline;
+}
+</style>
 </head>
 <body>
-  <!-- Custom Cursor -->
-  <div class="cursor"></div>
 
-  <!-- Sidebar -->
-  <aside class="sidebar">
-    <nav>
-      <ul>
-        <li><a href="./index.html">Home</a></li>
-        <li><a href="./blog/index.html">Blog</a></li>
-        <li><a href="./about/index.html">About Me</a></li>
-        <li><a href="./contact/index.html">Contact</a></li>
-        <li><a href="./socials/index.html">Socials</a></li>
-      </ul>
-    </nav>
-  </aside>
+<h1>korin</h1>
 
-  <!-- Main Content -->
-  <main class="main-content">
-    <!-- Hero Section -->
-    <!--<img src="./assets/hero-bg.png" style="height:min-content; left:0; right:0; top: 0; bottom: 0; position: absolute; z-index: -100;">-->
-    <section class="hero">
-      <div class="container">
-        <h1>Korin</h1>
-        <p class="tagline">Game Dev & Artist 🚀✨</p>
-        <a href="#projects" class="cta-button">Explore My Work</a>
-      </div>
-    </section>
+<nav>
+  <a href="#about">/about</a>
+  <a href="#votv">/voices of the void</a>
+  <a href="#contact">/contact</a>
+</nav>
 
-    <!-- Projects Section -->
-    <section id="projects" class="projects">
-      <div class="container">
-        <h2>Projects</h2>
-        <div class="project-grid">
-          <div class="project-card">
-            <h3>Sol26 - Harvest</h3>
-            <p>A cozy survival game set on Mars. Grow crops, explore the planet, and build a home among the stars.</p>
-            <a href="https://sol26.itskorin.online" target="_blank" class="project-link">Play Now</a>
-          </div>
-          <div class="project-card">
-            <h3>More Coming Soon!</h3>
-            <p>Stay tuned for more games and projects. I’m always working on something new!</p>
-            <a href="./about/index.html" class="project-link">Learn More</a>
-          </div>
-        </div>
-      </div>
-    </section>
-  </main>
+<hr>
 
-  <!-- Script for Custom Cursor -->
-  <script src="./js/script.js"></script>
+<section id="about">
+  <h2>about</h2>
+  <p>I make music and games.</p>
+  <p>I have been programming since i was 8</p>
+  <p>currently working on some stuff (nothing public yet)</p>
+</section>
+
+<section id="votv">
+  <h2>voices of the void</h2>
+  <ul>
+    <li><a href="./votveffects/" target="_blank">/votveffects</a></li>
+    <li><a href="./votvimages/" target="_blank">/votvimages</a></li>
+  </ul>
+</section>
+
+<section id="contact">
+  <h2>contact</h2>
+  <ul>
+    <li>Discord: korin.dev</li>
+    <li>Github: <a href="https://github.com/ItsKorin" target="_blank">ItsKorin</a></li>
+    <li>Email: <a href="mailto:korin@itskorin.online">korin@itskorin.online</a></li>
+  </ul>
+</section>
+
+<hr>
+
+<footer>
+  <p>© <span id="year"></span> Korin. All rights reserved.</p>
+  <p>Last updated: <span id="date"></span></p>
+</footer>
+
+<script>
+document.getElementById('year').textContent = new Date().getFullYear();
+document.getElementById('date').textContent = new Date().toLocaleDateString();
+</script>
+
 </body>
 </html>

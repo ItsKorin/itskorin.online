@@ -1,755 +1,3808 @@
-const oggFiles = [
-  "effects/21102041.ogg",
-  "effects/ajajaj.ogg",
-  "effects/alarm.ogg",
-  "effects/ALERTA_microwave.ogg",
-  "effects/AMANGAS.ogg",
-  "effects/angelChoir.ogg",
-  "effects/antibreather_attack.ogg",
-  "effects/antibreather_gr_1.ogg",
-  "effects/antibreather_gr_2.ogg",
-  "effects/antibreather_gr_3.ogg",
-  "effects/antibreather_loop.ogg",
-  "effects/argemusAEAEEAEEAAEEAEA.ogg",
-  "effects/argemusScream.ogg",
-  "effects/ariral_purr.ogg",
-  "effects/ariral_sneeze.ogg",
-  "effects/arirCrateAlarm.ogg",
-  "effects/arirCrateAlarm_s.ogg",
-  "effects/arirGunAlarm.ogg",
-  "effects/arirGunClose.ogg",
-  "effects/arirGunFire1.ogg",
-  "effects/arirGunOpen.ogg",
-  "effects/arirHover.ogg",
-  "effects/atvHorn_in.ogg",
-  "effects/atvHorn_out.ogg",
-  "effects/babyPenguin.ogg",
-  "effects/bell.ogg",
-  "effects/bells.ogg",
-  "effects/bells2.ogg",
-  "effects/bitee.ogg",
-  "effects/biteHit.ogg",
-  "effects/blackFog_thump.ogg",
-  "effects/blackFog_whispers_0.ogg",
-  "effects/blackFog_whispers_1.ogg",
-  "effects/blackFog_whispers_2.ogg",
-  "effects/blackFog_whispers_3.ogg",
-  "effects/blades.ogg",
-  "effects/blip1.ogg",
-  "effects/boingShort.ogg",
-  "effects/boioioioiong.ogg",
-  "effects/bonk.ogg",
-  "effects/boofoFlyLoop.ogg",
-  "effects/borgRozit.ogg",
-  "effects/break_flesh_1.ogg",
-  "effects/break_flesh_2.ogg",
-  "effects/break_flesh_3.ogg",
-  "effects/bs9.ogg",
-  "effects/bs_l.ogg",
-  "effects/bs_r.ogg",
-  "effects/burning.ogg",
-  "effects/button_atvFlashlight.ogg",
-  "effects/button_computer_click.ogg",
-  "effects/button_computer_compFinish.ogg",
-  "effects/button_computer_compProcess.ogg",
-  "effects/button_computer_deny.ogg",
-  "effects/button_computer_turnoff.ogg",
-  "effects/button_computer_turnon.ogg",
-  "effects/button_keypad_deny.ogg",
-  "effects/button_keypad_key.ogg",
-  "effects/button_keypad_modify.ogg",
-  "effects/button_keypad_success.ogg",
-  "effects/cartoonSFX-01.ogg",
-  "effects/cartoonSFX-02.ogg",
-  "effects/cartoonSFX-03.ogg",
-  "effects/cartoonSFX-04.ogg",
-  "effects/cartoonSFX-05.ogg",
-  "effects/cartoonSFX-06.ogg",
-  "effects/cartoonSFX-07.ogg",
-  "effects/cartoonSFX-08.ogg",
-  "effects/cartoonSFX-09.ogg",
-  "effects/cartoonSFX-10.ogg",
-  "effects/cartoonSFX-11.ogg",
-  "effects/cartoonSFX-12.ogg",
-  "effects/cartoonSFX-13.ogg",
-  "effects/cartoonSFX-14.ogg",
-  "effects/cartoonSFX-15.ogg",
-  "effects/cartoonSFX-16.ogg",
-  "effects/cartoonSFX-17.ogg",
-  "effects/cartoonSFX-18.ogg",
-  "effects/cartoonSFX-19.ogg",
-  "effects/cartoonSFX-20.ogg",
-  "effects/cartoonSFX-21.ogg",
-  "effects/cartoonSFX-22.ogg",
-  "effects/cartoonSFX-23.ogg",
-  "effects/cartoonSFX-24.ogg",
-  "effects/cartoonSFX-25.ogg",
-  "effects/cartoonSFX-26.ogg",
-  "effects/cartoonSFX-27.ogg",
-  "effects/cartoonSFX-28.ogg",
-  "effects/cartoonSFX-29.ogg",
-  "effects/cartoonSFX-30.ogg",
-  "effects/cartoonSFX-31.ogg",
-  "effects/cartoonSFX-32.ogg",
-  "effects/car_brakeLever.ogg",
-  "effects/car_damage.ogg",
-  "effects/car_drive_brake.ogg",
-  "effects/car_drive_loop.ogg",
-  "effects/car_drive_start.ogg",
-  "effects/car_fix.ogg",
-  "effects/car_loop.ogg",
-  "effects/car_start.ogg",
-  "effects/car_stop.ogg",
-  "effects/car_turbo.ogg",
-  "effects/caveAmb-01.ogg",
-  "effects/caveAmb-02.ogg",
-  "effects/caveAmb-03.ogg",
-  "effects/caveAmb-04.ogg",
-  "effects/caveAmb-05.ogg",
-  "effects/caveAmb-06.ogg",
-  "effects/caveAmb-07.ogg",
-  "effects/caveAmb-08.ogg",
-  "effects/caveAmb-09.ogg",
-  "effects/caveAmb-10.ogg",
-  "effects/caveAmb-11.ogg",
-  "effects/caveAmb-12.ogg",
-  "effects/caveAmb-13.ogg",
-  "effects/caveAmb2-01.ogg",
-  "effects/caveAmb2-02.ogg",
-  "effects/caveAmb2-03.ogg",
-  "effects/caveamb3-01.ogg",
-  "effects/caveamb3-02.ogg",
-  "effects/chamberAppear.ogg",
-  "effects/churchbell.ogg",
-  "effects/concrete_break1.ogg",
-  "effects/concrete_break2.ogg",
-  "effects/cookingLoop.ogg",
-  "effects/corrds_loop.ogg",
-  "effects/cough-01.ogg",
-  "effects/cough-02.ogg",
-  "effects/cough-03.ogg",
-  "effects/cough-04.ogg",
-  "effects/craftSound.ogg",
-  "effects/crematorDoorClose.ogg",
-  "effects/crematorDoorMove.ogg",
-  "effects/crematorLoop.ogg",
-  "effects/crossbow_fire.ogg",
-  "effects/crossbow_nailFly.ogg",
-  "effects/crossbow_nailLoad.ogg",
-  "effects/crossbow_nailReflect.ogg",
-  "effects/crossbow_reloadString.ogg",
-  "effects/crossbow_stick.ogg",
-  "effects/detectBeep.ogg",
-  "effects/deth.ogg",
-  "effects/digcam.ogg",
-  "effects/digcamReload.ogg",
-  "effects/disint.ogg",
-  "effects/DOMERR_OKKE_HERRARR.ogg",
-  "effects/door0_closed.ogg",
-  "effects/door0_locked.ogg",
-  "effects/door0_open.ogg",
-  "effects/door0_sqeak.ogg",
-  "effects/door1_close.ogg",
-  "effects/door1_locked.ogg",
-  "effects/door1_open.ogg",
-  "effects/doorhack.ogg",
-  "effects/doorSlide1.ogg",
-  "effects/doorstop1.ogg",
-  "effects/drinc.ogg",
-  "effects/drive_in.ogg",
-  "effects/drive_out.ogg",
-  "effects/duendeSound_1.ogg",
-  "effects/duendeSound_2.ogg",
-  "effects/duendeSound_3.ogg",
-  "effects/duendeSound_4.ogg",
-  "effects/eat.ogg",
-  "effects/eep1.ogg",
-  "effects/eep2.ogg",
-  "effects/eep_call_1.ogg",
-  "effects/eep_call_2.ogg",
-  "effects/eep_call_3.ogg",
-  "effects/eep_call_4.ogg",
-  "effects/eep_ping_1.ogg",
-  "effects/eep_ping_2.ogg",
-  "effects/eep_ping_3.ogg",
-  "effects/eep_ping_4.ogg",
-  "effects/email.ogg",
-  "effects/erie_MYCHESE.ogg",
-  "effects/erie_spawnIn.ogg",
-  "effects/erie_spawnWah.ogg",
-  "effects/explode_2.ogg",
-  "effects/explode_7.ogg",
-  "effects/explosionEcho_1.ogg",
-  "effects/explosionEcho_2.ogg",
-  "effects/explosionEcho_3.ogg",
-  "effects/explosion_1.ogg",
-  "effects/explosion_2.ogg",
-  "effects/explosion_3.ogg",
-  "effects/fard.ogg",
-  "effects/fireExtThrust.ogg",
-  "effects/firetankSpeech-01.ogg",
-  "effects/firetankSpeech-02.ogg",
-  "effects/firetankSpeech-03.ogg",
-  "effects/firetankSpeech-04.ogg",
-  "effects/firetankSpeech-05.ogg",
-  "effects/firetankSpeech-06.ogg",
-  "effects/firetankSpeech-07.ogg",
-  "effects/firetank_startspeak.ogg",
-  "effects/FKUCIN_GUN.ogg",
-  "effects/flashlight.ogg",
-  "effects/fleshlightReload.ogg",
-  "effects/flesh_bloody_break.ogg",
-  "effects/flies1.ogg",
-  "effects/flies2.ogg",
-  "effects/flies3.ogg",
-  "effects/flies4.ogg",
-  "effects/flies5.ogg",
-  "effects/footstepGoop_1.ogg",
-  "effects/footstepGoop_2.ogg",
-  "effects/footstepGoop_3.ogg",
-  "effects/footstepGoop_4.ogg",
-  "effects/fpru.ogg",
-  "effects/frgvs.ogg",
-  "effects/fridgeLoop1.ogg",
-  "effects/fridgeLoop2.ogg",
-  "effects/fridge_close.ogg",
-  "effects/fridge_open.ogg",
-  "effects/fuel1.ogg",
-  "effects/funguy_alert_1.ogg",
-  "effects/funguy_alert_2.ogg",
-  "effects/funguy_alert_3.ogg",
-  "effects/funguy_idle_1.ogg",
-  "effects/funguy_idle_2.ogg",
-  "effects/funguy_idle_3.ogg",
-  "effects/funguy_idle_4.ogg",
-  "effects/funguy_idle_5.ogg",
-  "effects/funguy_panic.ogg",
-  "effects/garageMove.ogg",
-  "effects/garageStart.ogg",
-  "effects/garageStop.ogg",
-  "effects/garage_loop.ogg",
-  "effects/garage_stop.ogg",
-  "effects/garbage_put.ogg",
-  "effects/garbage_use.ogg",
-  "effects/geiger1.ogg",
-  "effects/geiger2.ogg",
-  "effects/geiger3.ogg",
-  "effects/gentlemen.ogg",
-  "effects/geomOct_loop.ogg",
-  "effects/go_alert2a.ogg",
-  "effects/gravigun_object_attr_loop.ogg",
-  "effects/gravigun_object_grab.ogg",
-  "effects/gravigun_object_hold_loop.ogg",
-  "effects/gravigun_object_release.ogg",
-  "effects/gravigun_object_throw1.ogg",
-  "effects/gravigun_object_throw2.ogg",
-  "effects/gravigun_object_throw3.ogg",
-  "effects/grayboar_alert.ogg",
-  "effects/grayboar_attack.ogg",
-  "effects/grayboar_damage1.ogg",
-  "effects/grayboar_damage2.ogg",
-  "effects/grayboar_damage3.ogg",
-  "effects/grayboar_damage4.ogg",
-  "effects/grayboar_idle1.ogg",
-  "effects/grayboar_idle10.ogg",
-  "effects/grayboar_idle11.ogg",
-  "effects/grayboar_idle12.ogg",
-  "effects/grayboar_idle13.ogg",
-  "effects/grayboar_idle2.ogg",
-  "effects/grayboar_idle3.ogg",
-  "effects/grayboar_idle4.ogg",
-  "effects/grayboar_idle5.ogg",
-  "effects/grayboar_idle6.ogg",
-  "effects/grayboar_idle7.ogg",
-  "effects/grayboar_idle8.ogg",
-  "effects/grayboar_idle9.ogg",
-  "effects/grs.ogg",
-  "effects/grunt_crit.ogg",
-  "effects/grunt_damageBig_1.ogg",
-  "effects/grunt_damageBig_2.ogg",
-  "effects/grunt_damageBig_3.ogg",
-  "effects/grunt_damageBig_4.ogg",
-  "effects/grunt_damage_1.ogg",
-  "effects/grunt_damage_2.ogg",
-  "effects/grunt_damage_3.ogg",
-  "effects/grunt_damage_4.ogg",
-  "effects/grunt_death_1.ogg",
-  "effects/grunt_death_2.ogg",
-  "effects/GUN111111111111.ogg",
-  "effects/g_laugh_1.ogg",
-  "effects/g_laugh_2.ogg",
-  "effects/g_laugh_3.ogg",
-  "effects/g_laugh_4.ogg",
-  "effects/hoelUfoAttack1.ogg",
-  "effects/hoelUfoAttack2.ogg",
-  "effects/ignite.ogg",
-  "effects/impact.ogg",
-  "effects/impostorProp_damage_-01.ogg",
-  "effects/impostorProp_damage_-02.ogg",
-  "effects/impostorProp_damage_-03.ogg",
-  "effects/impostorProp_damage_-04.ogg",
-  "effects/impostorProp_death_-01.ogg",
-  "effects/impostorProp_death_-02.ogg",
-  "effects/impostorProp_death_-03.ogg",
-  "effects/impostorProp_idle-01.ogg",
-  "effects/impostorProp_idle-02.ogg",
-  "effects/impostorProp_idle-03.ogg",
-  "effects/impostorProp_idle-04.ogg",
-  "effects/impostorProp_idle-05.ogg",
-  "effects/impostorProp_idle-06.ogg",
-  "effects/invaders_beep.ogg",
-  "effects/invaders_beep_HQ.ogg",
-  "effects/invaders_beep_LQ.ogg",
-  "effects/inventory_0.ogg",
-  "effects/inventory_1.ogg",
-  "effects/inventory_2.ogg",
-  "effects/inventory_3.ogg",
-  "effects/joleMonkeMode.ogg",
-  "effects/kauai-01.ogg",
-  "effects/kauai-02.ogg",
-  "effects/kauai-03.ogg",
-  "effects/kauai-04.ogg",
-  "effects/kauai-05.ogg",
-  "effects/kauai-06.ogg",
-  "effects/kauai-07.ogg",
-  "effects/kauai-08.ogg",
-  "effects/kauai-09.ogg",
-  "effects/keljoyFoot1.ogg",
-  "effects/keljoyFoot2.ogg",
-  "effects/keljoyHasSpawnedIn.ogg",
-  "effects/kerfur2meow-01.ogg",
-  "effects/kerfur2meow-02.ogg",
-  "effects/kerfur2meow-03.ogg",
-  "effects/kerfurEXE.ogg",
-  "effects/kerfuroFUCKINGDIES.ogg",
-  "effects/ladder_0.ogg",
-  "effects/ladder_1.ogg",
-  "effects/ladder_2.ogg",
-  "effects/ladder_3.ogg",
-  "effects/lambertSpawn.ogg",
-  "effects/lever-01.ogg",
-  "effects/lever-02.ogg",
-  "effects/lever-03.ogg",
-  "effects/lever-04.ogg",
-  "effects/lever-05.ogg",
-  "effects/lever-06.ogg",
-  "effects/lever-07.ogg",
-  "effects/lever-08.ogg",
-  "effects/lifecrystalSpeak-01.ogg",
-  "effects/lifecrystalSpeak-02.ogg",
-  "effects/lifecrystalSpeak-03.ogg",
-  "effects/lifecrystalSpeak-04.ogg",
-  "effects/lifecrystalSpeak-05.ogg",
-  "effects/lifecrystalSpeak-06.ogg",
-  "effects/lifecrystalSpeak-07.ogg",
-  "effects/lifecrystalSpeak-08.ogg",
-  "effects/lightswitch.ogg",
-  "effects/locker_close.ogg",
-  "effects/locker_move.ogg",
-  "effects/locker_open.ogg",
-  "effects/meow.ogg",
-  "effects/meow0.ogg",
-  "effects/meow1.ogg",
-  "effects/meow2.ogg",
-  "effects/meow3.ogg",
-  "effects/meowFix_0.ogg",
-  "effects/meowFix_1.ogg",
-  "effects/meowFix_2.ogg",
-  "effects/metalDoorKnock_0.ogg",
-  "effects/metalDoorKnock_1.ogg",
-  "effects/metalDoorKnock_2.ogg",
-  "effects/microwave_close.ogg",
-  "effects/microwave_deny.ogg",
-  "effects/microwave_ding.ogg",
-  "effects/microwave_loop.ogg",
-  "effects/microwave_open.ogg",
-  "effects/minerFans_coolers.ogg",
-  "effects/minerFans_gpus.ogg",
-  "effects/moniqSpawned.ogg",
-  "effects/moniqUse.ogg",
-  "effects/murderfurVoice-01.ogg",
-  "effects/murderfurVoice-02.ogg",
-  "effects/murderfurVoice-03.ogg",
-  "effects/murderfurVoice-04.ogg",
-  "effects/murderfurVoice-05.ogg",
-  "effects/murderfurVoice-06.ogg",
-  "effects/murderfurVoice-07.ogg",
-  "effects/murderfurVoice-08.ogg",
-  "effects/murderfurVoice-09.ogg",
-  "effects/murderfurVoice-10.ogg",
-  "effects/murderfurVoice-11.ogg",
-  "effects/murderfurVoice-12.ogg",
-  "effects/murderfurVoice-13.ogg",
-  "effects/noise.ogg",
-  "effects/notepadCrumple.ogg",
-  "effects/notepadFlip.ogg",
-  "effects/obelisk_enter.ogg",
-  "effects/obelisk_fall.ogg",
-  "effects/obelisk_land.ogg",
-  "effects/object_grab.ogg",
-  "effects/object_hold_loop.ogg",
-  "effects/object_release.ogg",
-  "effects/object_throw.ogg",
-  "effects/octBeamLoop.ogg",
-  "effects/octBeamShoot.ogg",
-  "effects/octCharge.ogg",
-  "effects/outerspacepool.ogg",
-  "effects/outsideAlien-01.ogg",
-  "effects/outsideAlien-02.ogg",
-  "effects/outsideAlien-03.ogg",
-  "effects/outsideAlien-04.ogg",
-  "effects/outsideAlien-05.ogg",
-  "effects/outsideAlien-06.ogg",
-  "effects/outsideAlien-07.ogg",
-  "effects/outsideAlien-08.ogg",
-  "effects/pcShutdown.ogg",
-  "effects/pcStartup.ogg",
-  "effects/pillfoLoop.ogg",
-  "effects/piramidPing.ogg",
-  "effects/piramidPing_0.ogg",
-  "effects/piramidPing_1.ogg",
-  "effects/piramidPing_2.ogg",
-  "effects/piramidPing_3.ogg",
-  "effects/piramidStepClose_1.ogg",
-  "effects/piramidStepClose_2.ogg",
-  "effects/piramidStepClose_3.ogg",
-  "effects/piramidStepClose_4.ogg",
-  "effects/piramidStepFar_1.ogg",
-  "effects/piramidStepFar_2.ogg",
-  "effects/piramidStepFar_3.ogg",
-  "effects/piramidStepFar_4.ogg",
-  "effects/piramid_step_close-01.ogg",
-  "effects/piramid_step_close-02.ogg",
-  "effects/piramid_step_close-03.ogg",
-  "effects/piramid_step_close-04.ogg",
-  "effects/piramid_step_far-01.ogg",
-  "effects/piramid_step_far-02.ogg",
-  "effects/piramid_step_far-03.ogg",
-  "effects/piramid_step_far-04.ogg",
-  "effects/piramid_step_med-01.ogg",
-  "effects/piramid_step_med-02.ogg",
-  "effects/piramid_step_med-03.ogg",
-  "effects/piramid_step_med-04.ogg",
-  "effects/piramid_step_sfar-01.ogg",
-  "effects/piramid_step_sfar-02.ogg",
-  "effects/piramid_step_sfar-03.ogg",
-  "effects/piramid_step_sfar-04.ogg",
-  "effects/plat1_loop.ogg",
-  "effects/plat1_start.ogg",
-  "effects/plat1_stop.ogg",
-  "effects/player_drowning_1.ogg",
-  "effects/player_drowning_2.ogg",
-  "effects/player_drowning_3.ogg",
-  "effects/player_hurt_0.ogg",
-  "effects/player_hurt_1.ogg",
-  "effects/player_hurt_2.ogg",
-  "effects/pl_fallDeath.ogg",
-  "effects/poop_0.ogg",
-  "effects/poop_1.ogg",
-  "effects/poop_2.ogg",
-  "effects/powerDown.ogg",
-  "effects/puddleIdle-01.ogg",
-  "effects/puddleIdle-02.ogg",
-  "effects/puddleIdle-03.ogg",
-  "effects/puddleIdle-04.ogg",
-  "effects/puddleIdle-05.ogg",
-  "effects/puddleIdle-06.ogg",
-  "effects/puffballSpores.ogg",
-  "effects/puffballSporesFar.ogg",
-  "effects/pukinLugh.ogg",
-  "effects/qwak.ogg",
-  "effects/radioconnect.ogg",
-  "effects/radionoise.ogg",
-  "effects/reload_auto.ogg",
-  "effects/reload_dbarrel.ogg",
-  "effects/reload_pistol.ogg",
-  "effects/reload_rifle.ogg",
-  "effects/reload_shotgun.ogg",
-  "effects/ritualKnife_in.ogg",
-  "effects/ritualKnife_out.ogg",
-  "effects/roar.ogg",
-  "effects/rocketFire.ogg",
-  "effects/rocketFire_loop.ogg",
-  "effects/roomba_loop.ogg",
-  "effects/roomba_off.ogg",
-  "effects/roomba_on.ogg",
-  "effects/roomwell_off.ogg",
-  "effects/roomwell_on.ogg",
-  "effects/rozamb.ogg",
-  "effects/rozattack.ogg",
-  "effects/rozbeam_begin.ogg",
-  "effects/rozbeam_end.ogg",
-  "effects/rozbeam_init.ogg",
-  "effects/rozbeam_loop.ogg",
-  "effects/rozdoor.ogg",
-  "effects/rozdoor2.ogg",
-  "effects/rozgun1.ogg",
-  "effects/rozhis.ogg",
-  "effects/rozlock1.ogg",
-  "effects/rozmov1.ogg",
-  "effects/rpgMode.ogg",
-  "effects/runeIn.ogg",
-  "effects/sawSaw-01.ogg",
-  "effects/sawSaw-02.ogg",
-  "effects/sawSaw-03.ogg",
-  "effects/sawSaw-04.ogg",
-  "effects/screams.ogg",
-  "effects/screamsloop.ogg",
-  "effects/scrStr.ogg",
-  "effects/sell.ogg",
-  "effects/serverDown.ogg",
-  "effects/shot_auto.ogg",
-  "effects/shot_flaregun.ogg",
-  "effects/shot_grenadeLauncher.ogg",
-  "effects/shot_pistol.ogg",
-  "effects/shot_rifle.ogg",
-  "effects/shot_rpg.ogg",
-  "effects/shot_shotgun.ogg",
-  "effects/shovelDig_0.ogg",
-  "effects/shovelDig_1.ogg",
-  "effects/shovelDig_2.ogg",
-  "effects/sig.ogg",
-  "effects/siren_end.ogg",
-  "effects/siren_loop.ogg",
-  "effects/SKLEON.ogg",
-  "effects/slip.ogg",
-  "effects/sobloop.ogg",
-  "effects/soltomiaVoice-01.ogg",
-  "effects/soltomiaVoice-02.ogg",
-  "effects/soltomiaVoice-03.ogg",
-  "effects/soltomiaVoice-04.ogg",
-  "effects/soltomiaVoice-05.ogg",
-  "effects/soltomiaVoice-06.ogg",
-  "effects/soltomiaVoice-07.ogg",
-  "effects/soltomiaVoice-08.ogg",
-  "effects/soltomiaVoice-09.ogg",
-  "effects/soltomiaVoice-10.ogg",
-  "effects/soltomiaVoice-11.ogg",
-  "effects/soltomiaVoice-12.ogg",
-  "effects/soltomiaVoice-13.ogg",
-  "effects/soltomiaVoice-14.ogg",
-  "effects/soltomiaVoice-15.ogg",
-  "effects/soltomiaVoice-16.ogg",
-  "effects/soltomiaVoice-17.ogg",
-  "effects/soltomiaVoice-18.ogg",
-  "effects/soltomiaVoice-19.ogg",
-  "effects/soltomiaVoice-20.ogg",
-  "effects/soltomiaVoice-21.ogg",
-  "effects/soltomiaVoice-22.ogg",
-  "effects/soltomiaVoice-23.ogg",
-  "effects/sonar.ogg",
-  "effects/sonicGun.ogg",
-  "effects/sparkLong-01.ogg",
-  "effects/sparkLong-02.ogg",
-  "effects/sparkLong-03.ogg",
-  "effects/sparkLong-04.ogg",
-  "effects/sparkMed-01.ogg",
-  "effects/sparkMed-02.ogg",
-  "effects/sparkMed-03.ogg",
-  "effects/sparkSh-01.ogg",
-  "effects/sparkSh-02.ogg",
-  "effects/sparkSh-03.ogg",
-  "effects/sparkSh-04.ogg",
-  "effects/spark_1.ogg",
-  "effects/spark_2.ogg",
-  "effects/spark_3.ogg",
-  "effects/spark_4.ogg",
-  "effects/spark_5.ogg",
-  "effects/spark_6.ogg",
-  "effects/spikeOut.ogg",
-  "effects/spk_0.ogg",
-  "effects/spk_1.ogg",
-  "effects/spk_2.ogg",
-  "effects/spk_3.ogg",
-  "effects/spk_4.ogg",
-  "effects/spk_5.ogg",
-  "effects/spk_6.ogg",
-  "effects/spk_7.ogg",
-  "effects/spk_8.ogg",
-  "effects/spk_9.ogg",
-  "effects/spk_comma.ogg",
-  "effects/spk_non.ogg",
-  "effects/stab-01.ogg",
-  "effects/stab-02.ogg",
-  "effects/stab-03.ogg",
-  "effects/stab-04.ogg",
-  "effects/stationTurnoff.ogg",
-  "effects/stationTurnon.ogg",
-  "effects/steamburst1.ogg",
-  "effects/steamburst2.ogg",
-  "effects/stick1.ogg",
-  "effects/stick2.ogg",
-  "effects/stick3.ogg",
-  "effects/stockCreepyHalloweenEvilLaughSoundEffect.ogg",
-  "effects/SUPERBOOM.ogg",
-  "effects/supershart.ogg",
-  "effects/swing.ogg",
-  "effects/swing1.ogg",
-  "effects/swing2.ogg",
-  "effects/s_call.ogg",
-  "effects/s_call2.ogg",
-  "effects/tardis_despawn.ogg",
-  "effects/tardis_spawn.ogg",
-  "effects/teleport1.ogg",
-  "effects/teleport2.ogg",
-  "effects/teleport3.ogg",
-  "effects/tentacleBallChargeLoop.ogg",
-  "effects/tentacleBallTalk-01.ogg",
-  "effects/tentacleBallTalk-02.ogg",
-  "effects/tentacleBallTalk-03.ogg",
-  "effects/tentacleBallTalk-04.ogg",
-  "effects/tentacleBallTalk-05.ogg",
-  "effects/tentacleBallTalk-06.ogg",
-  "effects/tentacleBallTalk-07.ogg",
-  "effects/tentacleBallTalk-08.ogg",
-  "effects/tentacleBallTalk-09.ogg",
-  "effects/tentacleBallTalk-10.ogg",
-  "effects/tentacleBallTalk-11.ogg",
-  "effects/tentacleBallTalk-12.ogg",
-  "effects/tentacleBallTalk-13.ogg",
-  "effects/tentacleBallTalk-14.ogg",
-  "effects/tentacleBallTalk-15.ogg",
-  "effects/tentacleBallTalk-16.ogg",
-  "effects/tentacleBallTalk-17.ogg",
-  "effects/tentacleBallTalk-18.ogg",
-  "effects/tentacleBallTalk-19.ogg",
-  "effects/tentacleBallTalk-20.ogg",
-  "effects/tentacleBallTalk-21.ogg",
-  "effects/tentacleBallTalk-22.ogg",
-  "effects/tentacleBallTalk-23.ogg",
-  "effects/tick1.ogg",
-  "effects/ticks.ogg",
-  "effects/timeFast.ogg",
-  "effects/timeSlow.ogg",
-  "effects/tone_saw.ogg",
-  "effects/tone_sine.ogg",
-  "effects/tone_square.ogg",
-  "effects/tooManyMushrooms.ogg",
-  "effects/tooManyMushrooms1.ogg",
-  "effects/trifoLightLoop.ogg",
-  "effects/turnoff.ogg",
-  "effects/turnon.ogg",
-  "effects/tut_1_3.ogg",
-  "effects/tut_1_4.ogg",
-  "effects/uglyspeaking-01.ogg",
-  "effects/uglyspeaking-02.ogg",
-  "effects/uglyspeaking-03.ogg",
-  "effects/uglyspeaking-04.ogg",
-  "effects/uglyspeaking-05.ogg",
-  "effects/uglyspeaking-06.ogg",
-  "effects/uglyspeaking-07.ogg",
-  "effects/uglyspeaking-08.ogg",
-  "effects/UU_WA_A_A_A.ogg",
-  "effects/vehicletp.ogg",
-  "effects/warpbox_closed.ogg",
-  "effects/warpbox_closing.ogg",
-  "effects/warpbox_impact_0001.ogg",
-  "effects/warpbox_impact_0002.ogg",
-  "effects/warpbox_impact_0003.ogg",
-  "effects/warpbox_open.ogg",
-  "effects/warpbox_opened.ogg",
-  "effects/warpbox_tile.ogg",
-  "effects/waterEnt_attack1.ogg",
-  "effects/waterEnt_attack2.ogg",
-  "effects/waterEnt_attack3.ogg",
-  "effects/waterEnt_init.ogg",
-  "effects/waterEnt_loop.ogg",
-  "effects/waterEnt_pull.ogg",
-  "effects/waterLeakLoop.ogg",
-  "effects/waterRiverLoop.ogg",
-  "effects/waterShowerLoop.ogg",
-  "effects/WA_warp.ogg",
-  "effects/wa_warpStart.ogg",
-  "effects/weapon_empty.ogg",
-  "effects/weapon_empty_2.ogg",
-  "effects/weld_A.ogg",
-  "effects/weld_B.ogg",
-  "effects/wolfHowl.ogg",
-  "effects/woodchipper_chipLoop.ogg",
-  "effects/woodchipper_loop.ogg",
-  "effects/wood_box_break1.ogg",
-  "effects/yoilet.ogg",
-  "effects/zap-zapzap.ogg",
-  "interface/fireExplosion.ogg",
-  "interface/firetank_armMoveLoop.ogg",
-  "interface/firetank_box_ambience.ogg",
-  "interface/firetank_DeployingLoop.ogg",
-  "interface/firetank_engineLoop.ogg",
-  "interface/firetank_engineStart.ogg",
-  "interface/firetank_fireLoop.ogg",
-  "interface/firetank_gunMoveLoop.ogg",
-  "interface/firetank_loop.ogg",
-  "interface/firetank_ping.ogg",
-  "interface/firetank_ZaxisMoveLoop.ogg",
-  "interface/use.ogg",
-  "interface/use_deny.ogg",
-  "music/aaa_a_eee_e.ogg",
-  "music/amb2_day.ogg",
-  "music/amb2_evening.ogg",
-  "music/amb2_morning.ogg",
-  "music/amb2_night.ogg",
-  "music/assfuckingTechno.ogg",
-  "music/dickholeGaming.ogg",
-  "music/do_not_play.ogg",
-  "music/eeaaa_ae_ae_ae_a_eaaa.ogg",
-  "music/erieloop.ogg",
-  "music/evening0001.ogg",
-  "music/EvilConsumes.ogg",
-  "music/firetank_track.ogg",
-  "music/MC_music.ogg",
-  "music/morning0001.ogg",
-  "music/muchSpook.ogg",
-  "music/murderfurThemePlaceholder.ogg",
-  "music/murderfurTheme_st1.ogg",
-  "music/murderfurTheme_st2.ogg",
-  "music/murderfurTheme_st3.ogg",
-  "music/newMaxwellDeadassRemixNoCopyrightFuckOff.ogg",
-  "music/night0001.ogg",
-  "music/noon0001.ogg",
-  "music/SKELEBONERTHEME.ogg",
-  "music/votv_0001.ogg",
-  "ui/achievement.ogg",
-  "ui/buttonclick.ogg",
-  "ui/buttonclickrelease.ogg",
-  "ui/buttonrollover.ogg",
-  "ui/crankFlashlight.ogg",
-  "ui/deadTone.ogg",
-  "ui/eat_crunchy_1.ogg",
-  "ui/eat_crunchy_2.ogg",
-  "ui/eat_crunchy_3.ogg",
-  "ui/eat_drink_1.ogg",
-  "ui/eat_drink_2.ogg",
-  "ui/eat_drink_3.ogg",
-  "ui/eat_juicy_1.ogg",
-  "ui/eat_juicy_2.ogg",
-  "ui/eat_juicy_3.ogg",
-  "ui/eat_soft_1.ogg",
-  "ui/eat_soft_2.ogg",
-  "ui/eat_soft_3.ogg",
-  "ui/hungry-01.ogg",
-  "ui/hungry-02.ogg",
-  "ui/hungry-03.ogg",
-  "ui/hungry-04.ogg",
-  "ui/hungry-05.ogg",
-  "ui/hungry-06.ogg",
-  "ui/hungry-07.ogg",
-  "ui/hungry-08.ogg",
-  "ui/hungry-09.ogg",
-  "ui/notif1.ogg",
-  "ui/notif2.ogg",
-  "ui/notif3.ogg",
-  "ui/notif4.ogg",
-  "ui/notif_n.ogg",
-  "ui/notif_n2.ogg",
-  "ui/notif_n3.ogg",
-  "ui/pain_fire_0.ogg",
-  "ui/pain_fire_1.ogg",
-  "ui/pain_fire_2.ogg",
-  "ui/terminalClick-01.ogg",
-  "ui/terminalClick-02.ogg",
-  "ui/terminalClick-03.ogg",
-  "ui/terminalClick-04.ogg",
-  "ui/terminalClick-05.ogg",
-  "ui/terminalClick-06.ogg",
-  "ui/terminalClick-07.ogg"
+// This file is auto-generated by generate_files.py
+window.FILE_LISTING = [
+    {
+        "name": "effects",
+        "type": "directory",
+        "path": "effects/"
+    },
+    {
+        "name": "interface",
+        "type": "directory",
+        "path": "interface/"
+    },
+    {
+        "name": "music",
+        "type": "directory",
+        "path": "music/"
+    },
+    {
+        "name": "ui",
+        "type": "directory",
+        "path": "ui/"
+    },
+    {
+        "name": "21102041.ogg",
+        "type": "file",
+        "path": "effects\\21102041.ogg"
+    },
+    {
+        "name": "ajajaj.ogg",
+        "type": "file",
+        "path": "effects\\ajajaj.ogg"
+    },
+    {
+        "name": "alarm.ogg",
+        "type": "file",
+        "path": "effects\\alarm.ogg"
+    },
+    {
+        "name": "alerta_microwave.ogg",
+        "type": "file",
+        "path": "effects\\alerta_microwave.ogg"
+    },
+    {
+        "name": "amangas.ogg",
+        "type": "file",
+        "path": "effects\\amangas.ogg"
+    },
+    {
+        "name": "angelchoir.ogg",
+        "type": "file",
+        "path": "effects\\angelchoir.ogg"
+    },
+    {
+        "name": "antibreather_attack.ogg",
+        "type": "file",
+        "path": "effects\\antibreather_attack.ogg"
+    },
+    {
+        "name": "antibreather_gr_1.ogg",
+        "type": "file",
+        "path": "effects\\antibreather_gr_1.ogg"
+    },
+    {
+        "name": "antibreather_gr_2.ogg",
+        "type": "file",
+        "path": "effects\\antibreather_gr_2.ogg"
+    },
+    {
+        "name": "antibreather_gr_3.ogg",
+        "type": "file",
+        "path": "effects\\antibreather_gr_3.ogg"
+    },
+    {
+        "name": "antibreather_loop.ogg",
+        "type": "file",
+        "path": "effects\\antibreather_loop.ogg"
+    },
+    {
+        "name": "argemusaeaeeaeeaaeeaea.ogg",
+        "type": "file",
+        "path": "effects\\argemusaeaeeaeeaaeeaea.ogg"
+    },
+    {
+        "name": "argemusscream.ogg",
+        "type": "file",
+        "path": "effects\\argemusscream.ogg"
+    },
+    {
+        "name": "ariral_purr.ogg",
+        "type": "file",
+        "path": "effects\\ariral_purr.ogg"
+    },
+    {
+        "name": "ariral_sneeze.ogg",
+        "type": "file",
+        "path": "effects\\ariral_sneeze.ogg"
+    },
+    {
+        "name": "arircratealarm.ogg",
+        "type": "file",
+        "path": "effects\\arircratealarm.ogg"
+    },
+    {
+        "name": "arircratealarm_s.ogg",
+        "type": "file",
+        "path": "effects\\arircratealarm_s.ogg"
+    },
+    {
+        "name": "arirgunalarm.ogg",
+        "type": "file",
+        "path": "effects\\arirgunalarm.ogg"
+    },
+    {
+        "name": "arirgunclose.ogg",
+        "type": "file",
+        "path": "effects\\arirgunclose.ogg"
+    },
+    {
+        "name": "arirgunfire1.ogg",
+        "type": "file",
+        "path": "effects\\arirgunfire1.ogg"
+    },
+    {
+        "name": "arirgunopen.ogg",
+        "type": "file",
+        "path": "effects\\arirgunopen.ogg"
+    },
+    {
+        "name": "arirhover.ogg",
+        "type": "file",
+        "path": "effects\\arirhover.ogg"
+    },
+    {
+        "name": "atvhorn_in.ogg",
+        "type": "file",
+        "path": "effects\\atvhorn_in.ogg"
+    },
+    {
+        "name": "atvhorn_out.ogg",
+        "type": "file",
+        "path": "effects\\atvhorn_out.ogg"
+    },
+    {
+        "name": "babypenguin.ogg",
+        "type": "file",
+        "path": "effects\\babypenguin.ogg"
+    },
+    {
+        "name": "bell.ogg",
+        "type": "file",
+        "path": "effects\\bell.ogg"
+    },
+    {
+        "name": "bells.ogg",
+        "type": "file",
+        "path": "effects\\bells.ogg"
+    },
+    {
+        "name": "bells2.ogg",
+        "type": "file",
+        "path": "effects\\bells2.ogg"
+    },
+    {
+        "name": "bitee.ogg",
+        "type": "file",
+        "path": "effects\\bitee.ogg"
+    },
+    {
+        "name": "bitehit.ogg",
+        "type": "file",
+        "path": "effects\\bitehit.ogg"
+    },
+    {
+        "name": "blackfog_thump.ogg",
+        "type": "file",
+        "path": "effects\\blackfog_thump.ogg"
+    },
+    {
+        "name": "blackfog_whispers_0.ogg",
+        "type": "file",
+        "path": "effects\\blackfog_whispers_0.ogg"
+    },
+    {
+        "name": "blackfog_whispers_1.ogg",
+        "type": "file",
+        "path": "effects\\blackfog_whispers_1.ogg"
+    },
+    {
+        "name": "blackfog_whispers_2.ogg",
+        "type": "file",
+        "path": "effects\\blackfog_whispers_2.ogg"
+    },
+    {
+        "name": "blackfog_whispers_3.ogg",
+        "type": "file",
+        "path": "effects\\blackfog_whispers_3.ogg"
+    },
+    {
+        "name": "blades.ogg",
+        "type": "file",
+        "path": "effects\\blades.ogg"
+    },
+    {
+        "name": "blip1.ogg",
+        "type": "file",
+        "path": "effects\\blip1.ogg"
+    },
+    {
+        "name": "boingshort.ogg",
+        "type": "file",
+        "path": "effects\\boingshort.ogg"
+    },
+    {
+        "name": "boioioioiong.ogg",
+        "type": "file",
+        "path": "effects\\boioioioiong.ogg"
+    },
+    {
+        "name": "bonk.ogg",
+        "type": "file",
+        "path": "effects\\bonk.ogg"
+    },
+    {
+        "name": "boofoflyloop.ogg",
+        "type": "file",
+        "path": "effects\\boofoflyloop.ogg"
+    },
+    {
+        "name": "borgrozit.ogg",
+        "type": "file",
+        "path": "effects\\borgrozit.ogg"
+    },
+    {
+        "name": "break_flesh_1.ogg",
+        "type": "file",
+        "path": "effects\\break_flesh_1.ogg"
+    },
+    {
+        "name": "break_flesh_2.ogg",
+        "type": "file",
+        "path": "effects\\break_flesh_2.ogg"
+    },
+    {
+        "name": "break_flesh_3.ogg",
+        "type": "file",
+        "path": "effects\\break_flesh_3.ogg"
+    },
+    {
+        "name": "bs9.ogg",
+        "type": "file",
+        "path": "effects\\bs9.ogg"
+    },
+    {
+        "name": "bs_l.ogg",
+        "type": "file",
+        "path": "effects\\bs_l.ogg"
+    },
+    {
+        "name": "bs_r.ogg",
+        "type": "file",
+        "path": "effects\\bs_r.ogg"
+    },
+    {
+        "name": "burning.ogg",
+        "type": "file",
+        "path": "effects\\burning.ogg"
+    },
+    {
+        "name": "button_atvflashlight.ogg",
+        "type": "file",
+        "path": "effects\\button_atvflashlight.ogg"
+    },
+    {
+        "name": "button_computer_click.ogg",
+        "type": "file",
+        "path": "effects\\button_computer_click.ogg"
+    },
+    {
+        "name": "button_computer_compfinish.ogg",
+        "type": "file",
+        "path": "effects\\button_computer_compfinish.ogg"
+    },
+    {
+        "name": "button_computer_compprocess.ogg",
+        "type": "file",
+        "path": "effects\\button_computer_compprocess.ogg"
+    },
+    {
+        "name": "button_computer_deny.ogg",
+        "type": "file",
+        "path": "effects\\button_computer_deny.ogg"
+    },
+    {
+        "name": "button_computer_turnoff.ogg",
+        "type": "file",
+        "path": "effects\\button_computer_turnoff.ogg"
+    },
+    {
+        "name": "button_computer_turnon.ogg",
+        "type": "file",
+        "path": "effects\\button_computer_turnon.ogg"
+    },
+    {
+        "name": "button_keypad_deny.ogg",
+        "type": "file",
+        "path": "effects\\button_keypad_deny.ogg"
+    },
+    {
+        "name": "button_keypad_key.ogg",
+        "type": "file",
+        "path": "effects\\button_keypad_key.ogg"
+    },
+    {
+        "name": "button_keypad_modify.ogg",
+        "type": "file",
+        "path": "effects\\button_keypad_modify.ogg"
+    },
+    {
+        "name": "button_keypad_success.ogg",
+        "type": "file",
+        "path": "effects\\button_keypad_success.ogg"
+    },
+    {
+        "name": "car_brakelever.ogg",
+        "type": "file",
+        "path": "effects\\car_brakelever.ogg"
+    },
+    {
+        "name": "car_damage.ogg",
+        "type": "file",
+        "path": "effects\\car_damage.ogg"
+    },
+    {
+        "name": "car_drive_brake.ogg",
+        "type": "file",
+        "path": "effects\\car_drive_brake.ogg"
+    },
+    {
+        "name": "car_drive_loop.ogg",
+        "type": "file",
+        "path": "effects\\car_drive_loop.ogg"
+    },
+    {
+        "name": "car_drive_start.ogg",
+        "type": "file",
+        "path": "effects\\car_drive_start.ogg"
+    },
+    {
+        "name": "car_fix.ogg",
+        "type": "file",
+        "path": "effects\\car_fix.ogg"
+    },
+    {
+        "name": "car_loop.ogg",
+        "type": "file",
+        "path": "effects\\car_loop.ogg"
+    },
+    {
+        "name": "car_start.ogg",
+        "type": "file",
+        "path": "effects\\car_start.ogg"
+    },
+    {
+        "name": "car_stop.ogg",
+        "type": "file",
+        "path": "effects\\car_stop.ogg"
+    },
+    {
+        "name": "car_turbo.ogg",
+        "type": "file",
+        "path": "effects\\car_turbo.ogg"
+    },
+    {
+        "name": "cartoonsfx-01.ogg",
+        "type": "file",
+        "path": "effects\\cartoonsfx-01.ogg"
+    },
+    {
+        "name": "cartoonsfx-02.ogg",
+        "type": "file",
+        "path": "effects\\cartoonsfx-02.ogg"
+    },
+    {
+        "name": "cartoonsfx-03.ogg",
+        "type": "file",
+        "path": "effects\\cartoonsfx-03.ogg"
+    },
+    {
+        "name": "cartoonsfx-04.ogg",
+        "type": "file",
+        "path": "effects\\cartoonsfx-04.ogg"
+    },
+    {
+        "name": "cartoonsfx-05.ogg",
+        "type": "file",
+        "path": "effects\\cartoonsfx-05.ogg"
+    },
+    {
+        "name": "cartoonsfx-06.ogg",
+        "type": "file",
+        "path": "effects\\cartoonsfx-06.ogg"
+    },
+    {
+        "name": "cartoonsfx-07.ogg",
+        "type": "file",
+        "path": "effects\\cartoonsfx-07.ogg"
+    },
+    {
+        "name": "cartoonsfx-08.ogg",
+        "type": "file",
+        "path": "effects\\cartoonsfx-08.ogg"
+    },
+    {
+        "name": "cartoonsfx-09.ogg",
+        "type": "file",
+        "path": "effects\\cartoonsfx-09.ogg"
+    },
+    {
+        "name": "cartoonsfx-10.ogg",
+        "type": "file",
+        "path": "effects\\cartoonsfx-10.ogg"
+    },
+    {
+        "name": "cartoonsfx-11.ogg",
+        "type": "file",
+        "path": "effects\\cartoonsfx-11.ogg"
+    },
+    {
+        "name": "cartoonsfx-12.ogg",
+        "type": "file",
+        "path": "effects\\cartoonsfx-12.ogg"
+    },
+    {
+        "name": "cartoonsfx-13.ogg",
+        "type": "file",
+        "path": "effects\\cartoonsfx-13.ogg"
+    },
+    {
+        "name": "cartoonsfx-14.ogg",
+        "type": "file",
+        "path": "effects\\cartoonsfx-14.ogg"
+    },
+    {
+        "name": "cartoonsfx-15.ogg",
+        "type": "file",
+        "path": "effects\\cartoonsfx-15.ogg"
+    },
+    {
+        "name": "cartoonsfx-16.ogg",
+        "type": "file",
+        "path": "effects\\cartoonsfx-16.ogg"
+    },
+    {
+        "name": "cartoonsfx-17.ogg",
+        "type": "file",
+        "path": "effects\\cartoonsfx-17.ogg"
+    },
+    {
+        "name": "cartoonsfx-18.ogg",
+        "type": "file",
+        "path": "effects\\cartoonsfx-18.ogg"
+    },
+    {
+        "name": "cartoonsfx-19.ogg",
+        "type": "file",
+        "path": "effects\\cartoonsfx-19.ogg"
+    },
+    {
+        "name": "cartoonsfx-20.ogg",
+        "type": "file",
+        "path": "effects\\cartoonsfx-20.ogg"
+    },
+    {
+        "name": "cartoonsfx-21.ogg",
+        "type": "file",
+        "path": "effects\\cartoonsfx-21.ogg"
+    },
+    {
+        "name": "cartoonsfx-22.ogg",
+        "type": "file",
+        "path": "effects\\cartoonsfx-22.ogg"
+    },
+    {
+        "name": "cartoonsfx-23.ogg",
+        "type": "file",
+        "path": "effects\\cartoonsfx-23.ogg"
+    },
+    {
+        "name": "cartoonsfx-24.ogg",
+        "type": "file",
+        "path": "effects\\cartoonsfx-24.ogg"
+    },
+    {
+        "name": "cartoonsfx-25.ogg",
+        "type": "file",
+        "path": "effects\\cartoonsfx-25.ogg"
+    },
+    {
+        "name": "cartoonsfx-26.ogg",
+        "type": "file",
+        "path": "effects\\cartoonsfx-26.ogg"
+    },
+    {
+        "name": "cartoonsfx-27.ogg",
+        "type": "file",
+        "path": "effects\\cartoonsfx-27.ogg"
+    },
+    {
+        "name": "cartoonsfx-28.ogg",
+        "type": "file",
+        "path": "effects\\cartoonsfx-28.ogg"
+    },
+    {
+        "name": "cartoonsfx-29.ogg",
+        "type": "file",
+        "path": "effects\\cartoonsfx-29.ogg"
+    },
+    {
+        "name": "cartoonsfx-30.ogg",
+        "type": "file",
+        "path": "effects\\cartoonsfx-30.ogg"
+    },
+    {
+        "name": "cartoonsfx-31.ogg",
+        "type": "file",
+        "path": "effects\\cartoonsfx-31.ogg"
+    },
+    {
+        "name": "cartoonsfx-32.ogg",
+        "type": "file",
+        "path": "effects\\cartoonsfx-32.ogg"
+    },
+    {
+        "name": "caveamb-01.ogg",
+        "type": "file",
+        "path": "effects\\caveamb-01.ogg"
+    },
+    {
+        "name": "caveamb-02.ogg",
+        "type": "file",
+        "path": "effects\\caveamb-02.ogg"
+    },
+    {
+        "name": "caveamb-03.ogg",
+        "type": "file",
+        "path": "effects\\caveamb-03.ogg"
+    },
+    {
+        "name": "caveamb-04.ogg",
+        "type": "file",
+        "path": "effects\\caveamb-04.ogg"
+    },
+    {
+        "name": "caveamb-05.ogg",
+        "type": "file",
+        "path": "effects\\caveamb-05.ogg"
+    },
+    {
+        "name": "caveamb-06.ogg",
+        "type": "file",
+        "path": "effects\\caveamb-06.ogg"
+    },
+    {
+        "name": "caveamb-07.ogg",
+        "type": "file",
+        "path": "effects\\caveamb-07.ogg"
+    },
+    {
+        "name": "caveamb-08.ogg",
+        "type": "file",
+        "path": "effects\\caveamb-08.ogg"
+    },
+    {
+        "name": "caveamb-09.ogg",
+        "type": "file",
+        "path": "effects\\caveamb-09.ogg"
+    },
+    {
+        "name": "caveamb-10.ogg",
+        "type": "file",
+        "path": "effects\\caveamb-10.ogg"
+    },
+    {
+        "name": "caveamb-11.ogg",
+        "type": "file",
+        "path": "effects\\caveamb-11.ogg"
+    },
+    {
+        "name": "caveamb-12.ogg",
+        "type": "file",
+        "path": "effects\\caveamb-12.ogg"
+    },
+    {
+        "name": "caveamb-13.ogg",
+        "type": "file",
+        "path": "effects\\caveamb-13.ogg"
+    },
+    {
+        "name": "caveamb2-01.ogg",
+        "type": "file",
+        "path": "effects\\caveamb2-01.ogg"
+    },
+    {
+        "name": "caveamb2-02.ogg",
+        "type": "file",
+        "path": "effects\\caveamb2-02.ogg"
+    },
+    {
+        "name": "caveamb2-03.ogg",
+        "type": "file",
+        "path": "effects\\caveamb2-03.ogg"
+    },
+    {
+        "name": "caveamb3-01.ogg",
+        "type": "file",
+        "path": "effects\\caveamb3-01.ogg"
+    },
+    {
+        "name": "caveamb3-02.ogg",
+        "type": "file",
+        "path": "effects\\caveamb3-02.ogg"
+    },
+    {
+        "name": "chamberappear.ogg",
+        "type": "file",
+        "path": "effects\\chamberappear.ogg"
+    },
+    {
+        "name": "churchbell.ogg",
+        "type": "file",
+        "path": "effects\\churchbell.ogg"
+    },
+    {
+        "name": "concrete_break1.ogg",
+        "type": "file",
+        "path": "effects\\concrete_break1.ogg"
+    },
+    {
+        "name": "concrete_break2.ogg",
+        "type": "file",
+        "path": "effects\\concrete_break2.ogg"
+    },
+    {
+        "name": "cookingloop.ogg",
+        "type": "file",
+        "path": "effects\\cookingloop.ogg"
+    },
+    {
+        "name": "corrds_loop.ogg",
+        "type": "file",
+        "path": "effects\\corrds_loop.ogg"
+    },
+    {
+        "name": "cough-01.ogg",
+        "type": "file",
+        "path": "effects\\cough-01.ogg"
+    },
+    {
+        "name": "cough-02.ogg",
+        "type": "file",
+        "path": "effects\\cough-02.ogg"
+    },
+    {
+        "name": "cough-03.ogg",
+        "type": "file",
+        "path": "effects\\cough-03.ogg"
+    },
+    {
+        "name": "cough-04.ogg",
+        "type": "file",
+        "path": "effects\\cough-04.ogg"
+    },
+    {
+        "name": "craftsound.ogg",
+        "type": "file",
+        "path": "effects\\craftsound.ogg"
+    },
+    {
+        "name": "crematordoorclose.ogg",
+        "type": "file",
+        "path": "effects\\crematordoorclose.ogg"
+    },
+    {
+        "name": "crematordoormove.ogg",
+        "type": "file",
+        "path": "effects\\crematordoormove.ogg"
+    },
+    {
+        "name": "crematorloop.ogg",
+        "type": "file",
+        "path": "effects\\crematorloop.ogg"
+    },
+    {
+        "name": "crossbow_fire.ogg",
+        "type": "file",
+        "path": "effects\\crossbow_fire.ogg"
+    },
+    {
+        "name": "crossbow_nailfly.ogg",
+        "type": "file",
+        "path": "effects\\crossbow_nailfly.ogg"
+    },
+    {
+        "name": "crossbow_nailload.ogg",
+        "type": "file",
+        "path": "effects\\crossbow_nailload.ogg"
+    },
+    {
+        "name": "crossbow_nailreflect.ogg",
+        "type": "file",
+        "path": "effects\\crossbow_nailreflect.ogg"
+    },
+    {
+        "name": "crossbow_reloadstring.ogg",
+        "type": "file",
+        "path": "effects\\crossbow_reloadstring.ogg"
+    },
+    {
+        "name": "crossbow_stick.ogg",
+        "type": "file",
+        "path": "effects\\crossbow_stick.ogg"
+    },
+    {
+        "name": "detectbeep.ogg",
+        "type": "file",
+        "path": "effects\\detectbeep.ogg"
+    },
+    {
+        "name": "deth.ogg",
+        "type": "file",
+        "path": "effects\\deth.ogg"
+    },
+    {
+        "name": "digcam.ogg",
+        "type": "file",
+        "path": "effects\\digcam.ogg"
+    },
+    {
+        "name": "digcamreload.ogg",
+        "type": "file",
+        "path": "effects\\digcamreload.ogg"
+    },
+    {
+        "name": "disint.ogg",
+        "type": "file",
+        "path": "effects\\disint.ogg"
+    },
+    {
+        "name": "domerr_okke_herrarr.ogg",
+        "type": "file",
+        "path": "effects\\domerr_okke_herrarr.ogg"
+    },
+    {
+        "name": "door0_closed.ogg",
+        "type": "file",
+        "path": "effects\\door0_closed.ogg"
+    },
+    {
+        "name": "door0_locked.ogg",
+        "type": "file",
+        "path": "effects\\door0_locked.ogg"
+    },
+    {
+        "name": "door0_open.ogg",
+        "type": "file",
+        "path": "effects\\door0_open.ogg"
+    },
+    {
+        "name": "door0_sqeak.ogg",
+        "type": "file",
+        "path": "effects\\door0_sqeak.ogg"
+    },
+    {
+        "name": "door1_close.ogg",
+        "type": "file",
+        "path": "effects\\door1_close.ogg"
+    },
+    {
+        "name": "door1_locked.ogg",
+        "type": "file",
+        "path": "effects\\door1_locked.ogg"
+    },
+    {
+        "name": "door1_open.ogg",
+        "type": "file",
+        "path": "effects\\door1_open.ogg"
+    },
+    {
+        "name": "doorhack.ogg",
+        "type": "file",
+        "path": "effects\\doorhack.ogg"
+    },
+    {
+        "name": "doorslide1.ogg",
+        "type": "file",
+        "path": "effects\\doorslide1.ogg"
+    },
+    {
+        "name": "doorstop1.ogg",
+        "type": "file",
+        "path": "effects\\doorstop1.ogg"
+    },
+    {
+        "name": "drinc.ogg",
+        "type": "file",
+        "path": "effects\\drinc.ogg"
+    },
+    {
+        "name": "drive_in.ogg",
+        "type": "file",
+        "path": "effects\\drive_in.ogg"
+    },
+    {
+        "name": "drive_out.ogg",
+        "type": "file",
+        "path": "effects\\drive_out.ogg"
+    },
+    {
+        "name": "duendesound_1.ogg",
+        "type": "file",
+        "path": "effects\\duendesound_1.ogg"
+    },
+    {
+        "name": "duendesound_2.ogg",
+        "type": "file",
+        "path": "effects\\duendesound_2.ogg"
+    },
+    {
+        "name": "duendesound_3.ogg",
+        "type": "file",
+        "path": "effects\\duendesound_3.ogg"
+    },
+    {
+        "name": "duendesound_4.ogg",
+        "type": "file",
+        "path": "effects\\duendesound_4.ogg"
+    },
+    {
+        "name": "eat.ogg",
+        "type": "file",
+        "path": "effects\\eat.ogg"
+    },
+    {
+        "name": "eep1.ogg",
+        "type": "file",
+        "path": "effects\\eep1.ogg"
+    },
+    {
+        "name": "eep2.ogg",
+        "type": "file",
+        "path": "effects\\eep2.ogg"
+    },
+    {
+        "name": "eep_call_1.ogg",
+        "type": "file",
+        "path": "effects\\eep_call_1.ogg"
+    },
+    {
+        "name": "eep_call_2.ogg",
+        "type": "file",
+        "path": "effects\\eep_call_2.ogg"
+    },
+    {
+        "name": "eep_call_3.ogg",
+        "type": "file",
+        "path": "effects\\eep_call_3.ogg"
+    },
+    {
+        "name": "eep_call_4.ogg",
+        "type": "file",
+        "path": "effects\\eep_call_4.ogg"
+    },
+    {
+        "name": "eep_ping_1.ogg",
+        "type": "file",
+        "path": "effects\\eep_ping_1.ogg"
+    },
+    {
+        "name": "eep_ping_2.ogg",
+        "type": "file",
+        "path": "effects\\eep_ping_2.ogg"
+    },
+    {
+        "name": "eep_ping_3.ogg",
+        "type": "file",
+        "path": "effects\\eep_ping_3.ogg"
+    },
+    {
+        "name": "eep_ping_4.ogg",
+        "type": "file",
+        "path": "effects\\eep_ping_4.ogg"
+    },
+    {
+        "name": "email.ogg",
+        "type": "file",
+        "path": "effects\\email.ogg"
+    },
+    {
+        "name": "erie_mychese.ogg",
+        "type": "file",
+        "path": "effects\\erie_mychese.ogg"
+    },
+    {
+        "name": "erie_spawnin.ogg",
+        "type": "file",
+        "path": "effects\\erie_spawnin.ogg"
+    },
+    {
+        "name": "erie_spawnwah.ogg",
+        "type": "file",
+        "path": "effects\\erie_spawnwah.ogg"
+    },
+    {
+        "name": "explode_2.ogg",
+        "type": "file",
+        "path": "effects\\explode_2.ogg"
+    },
+    {
+        "name": "explode_7.ogg",
+        "type": "file",
+        "path": "effects\\explode_7.ogg"
+    },
+    {
+        "name": "explosion_1.ogg",
+        "type": "file",
+        "path": "effects\\explosion_1.ogg"
+    },
+    {
+        "name": "explosion_2.ogg",
+        "type": "file",
+        "path": "effects\\explosion_2.ogg"
+    },
+    {
+        "name": "explosion_3.ogg",
+        "type": "file",
+        "path": "effects\\explosion_3.ogg"
+    },
+    {
+        "name": "explosionecho_1.ogg",
+        "type": "file",
+        "path": "effects\\explosionecho_1.ogg"
+    },
+    {
+        "name": "explosionecho_2.ogg",
+        "type": "file",
+        "path": "effects\\explosionecho_2.ogg"
+    },
+    {
+        "name": "explosionecho_3.ogg",
+        "type": "file",
+        "path": "effects\\explosionecho_3.ogg"
+    },
+    {
+        "name": "fard.ogg",
+        "type": "file",
+        "path": "effects\\fard.ogg"
+    },
+    {
+        "name": "fireextthrust.ogg",
+        "type": "file",
+        "path": "effects\\fireextthrust.ogg"
+    },
+    {
+        "name": "firetank_startspeak.ogg",
+        "type": "file",
+        "path": "effects\\firetank_startspeak.ogg"
+    },
+    {
+        "name": "firetankspeech-01.ogg",
+        "type": "file",
+        "path": "effects\\firetankspeech-01.ogg"
+    },
+    {
+        "name": "firetankspeech-02.ogg",
+        "type": "file",
+        "path": "effects\\firetankspeech-02.ogg"
+    },
+    {
+        "name": "firetankspeech-03.ogg",
+        "type": "file",
+        "path": "effects\\firetankspeech-03.ogg"
+    },
+    {
+        "name": "firetankspeech-04.ogg",
+        "type": "file",
+        "path": "effects\\firetankspeech-04.ogg"
+    },
+    {
+        "name": "firetankspeech-05.ogg",
+        "type": "file",
+        "path": "effects\\firetankspeech-05.ogg"
+    },
+    {
+        "name": "firetankspeech-06.ogg",
+        "type": "file",
+        "path": "effects\\firetankspeech-06.ogg"
+    },
+    {
+        "name": "firetankspeech-07.ogg",
+        "type": "file",
+        "path": "effects\\firetankspeech-07.ogg"
+    },
+    {
+        "name": "fkucin_gun.ogg",
+        "type": "file",
+        "path": "effects\\fkucin_gun.ogg"
+    },
+    {
+        "name": "flashlight.ogg",
+        "type": "file",
+        "path": "effects\\flashlight.ogg"
+    },
+    {
+        "name": "flesh_bloody_break.ogg",
+        "type": "file",
+        "path": "effects\\flesh_bloody_break.ogg"
+    },
+    {
+        "name": "fleshlightreload.ogg",
+        "type": "file",
+        "path": "effects\\fleshlightreload.ogg"
+    },
+    {
+        "name": "flies1.ogg",
+        "type": "file",
+        "path": "effects\\flies1.ogg"
+    },
+    {
+        "name": "flies2.ogg",
+        "type": "file",
+        "path": "effects\\flies2.ogg"
+    },
+    {
+        "name": "flies3.ogg",
+        "type": "file",
+        "path": "effects\\flies3.ogg"
+    },
+    {
+        "name": "flies4.ogg",
+        "type": "file",
+        "path": "effects\\flies4.ogg"
+    },
+    {
+        "name": "flies5.ogg",
+        "type": "file",
+        "path": "effects\\flies5.ogg"
+    },
+    {
+        "name": "footstepgoop_1.ogg",
+        "type": "file",
+        "path": "effects\\footstepgoop_1.ogg"
+    },
+    {
+        "name": "footstepgoop_2.ogg",
+        "type": "file",
+        "path": "effects\\footstepgoop_2.ogg"
+    },
+    {
+        "name": "footstepgoop_3.ogg",
+        "type": "file",
+        "path": "effects\\footstepgoop_3.ogg"
+    },
+    {
+        "name": "footstepgoop_4.ogg",
+        "type": "file",
+        "path": "effects\\footstepgoop_4.ogg"
+    },
+    {
+        "name": "fpru.ogg",
+        "type": "file",
+        "path": "effects\\fpru.ogg"
+    },
+    {
+        "name": "frgvs.ogg",
+        "type": "file",
+        "path": "effects\\frgvs.ogg"
+    },
+    {
+        "name": "fridge_close.ogg",
+        "type": "file",
+        "path": "effects\\fridge_close.ogg"
+    },
+    {
+        "name": "fridge_open.ogg",
+        "type": "file",
+        "path": "effects\\fridge_open.ogg"
+    },
+    {
+        "name": "fridgeloop1.ogg",
+        "type": "file",
+        "path": "effects\\fridgeloop1.ogg"
+    },
+    {
+        "name": "fridgeloop2.ogg",
+        "type": "file",
+        "path": "effects\\fridgeloop2.ogg"
+    },
+    {
+        "name": "fuel1.ogg",
+        "type": "file",
+        "path": "effects\\fuel1.ogg"
+    },
+    {
+        "name": "funguy_alert_1.ogg",
+        "type": "file",
+        "path": "effects\\funguy_alert_1.ogg"
+    },
+    {
+        "name": "funguy_alert_2.ogg",
+        "type": "file",
+        "path": "effects\\funguy_alert_2.ogg"
+    },
+    {
+        "name": "funguy_alert_3.ogg",
+        "type": "file",
+        "path": "effects\\funguy_alert_3.ogg"
+    },
+    {
+        "name": "funguy_idle_1.ogg",
+        "type": "file",
+        "path": "effects\\funguy_idle_1.ogg"
+    },
+    {
+        "name": "funguy_idle_2.ogg",
+        "type": "file",
+        "path": "effects\\funguy_idle_2.ogg"
+    },
+    {
+        "name": "funguy_idle_3.ogg",
+        "type": "file",
+        "path": "effects\\funguy_idle_3.ogg"
+    },
+    {
+        "name": "funguy_idle_4.ogg",
+        "type": "file",
+        "path": "effects\\funguy_idle_4.ogg"
+    },
+    {
+        "name": "funguy_idle_5.ogg",
+        "type": "file",
+        "path": "effects\\funguy_idle_5.ogg"
+    },
+    {
+        "name": "funguy_panic.ogg",
+        "type": "file",
+        "path": "effects\\funguy_panic.ogg"
+    },
+    {
+        "name": "g_laugh_1.ogg",
+        "type": "file",
+        "path": "effects\\g_laugh_1.ogg"
+    },
+    {
+        "name": "g_laugh_2.ogg",
+        "type": "file",
+        "path": "effects\\g_laugh_2.ogg"
+    },
+    {
+        "name": "g_laugh_3.ogg",
+        "type": "file",
+        "path": "effects\\g_laugh_3.ogg"
+    },
+    {
+        "name": "g_laugh_4.ogg",
+        "type": "file",
+        "path": "effects\\g_laugh_4.ogg"
+    },
+    {
+        "name": "garage_loop.ogg",
+        "type": "file",
+        "path": "effects\\garage_loop.ogg"
+    },
+    {
+        "name": "garage_stop.ogg",
+        "type": "file",
+        "path": "effects\\garage_stop.ogg"
+    },
+    {
+        "name": "garagemove.ogg",
+        "type": "file",
+        "path": "effects\\garagemove.ogg"
+    },
+    {
+        "name": "garagestart.ogg",
+        "type": "file",
+        "path": "effects\\garagestart.ogg"
+    },
+    {
+        "name": "garagestop.ogg",
+        "type": "file",
+        "path": "effects\\garagestop.ogg"
+    },
+    {
+        "name": "garbage_put.ogg",
+        "type": "file",
+        "path": "effects\\garbage_put.ogg"
+    },
+    {
+        "name": "garbage_use.ogg",
+        "type": "file",
+        "path": "effects\\garbage_use.ogg"
+    },
+    {
+        "name": "geiger1.ogg",
+        "type": "file",
+        "path": "effects\\geiger1.ogg"
+    },
+    {
+        "name": "geiger2.ogg",
+        "type": "file",
+        "path": "effects\\geiger2.ogg"
+    },
+    {
+        "name": "geiger3.ogg",
+        "type": "file",
+        "path": "effects\\geiger3.ogg"
+    },
+    {
+        "name": "gentlemen.ogg",
+        "type": "file",
+        "path": "effects\\gentlemen.ogg"
+    },
+    {
+        "name": "geomoct_loop.ogg",
+        "type": "file",
+        "path": "effects\\geomoct_loop.ogg"
+    },
+    {
+        "name": "go_alert2a.ogg",
+        "type": "file",
+        "path": "effects\\go_alert2a.ogg"
+    },
+    {
+        "name": "gravigun_object_attr_loop.ogg",
+        "type": "file",
+        "path": "effects\\gravigun_object_attr_loop.ogg"
+    },
+    {
+        "name": "gravigun_object_grab.ogg",
+        "type": "file",
+        "path": "effects\\gravigun_object_grab.ogg"
+    },
+    {
+        "name": "gravigun_object_hold_loop.ogg",
+        "type": "file",
+        "path": "effects\\gravigun_object_hold_loop.ogg"
+    },
+    {
+        "name": "gravigun_object_release.ogg",
+        "type": "file",
+        "path": "effects\\gravigun_object_release.ogg"
+    },
+    {
+        "name": "gravigun_object_throw1.ogg",
+        "type": "file",
+        "path": "effects\\gravigun_object_throw1.ogg"
+    },
+    {
+        "name": "gravigun_object_throw2.ogg",
+        "type": "file",
+        "path": "effects\\gravigun_object_throw2.ogg"
+    },
+    {
+        "name": "gravigun_object_throw3.ogg",
+        "type": "file",
+        "path": "effects\\gravigun_object_throw3.ogg"
+    },
+    {
+        "name": "grayboar_alert.ogg",
+        "type": "file",
+        "path": "effects\\grayboar_alert.ogg"
+    },
+    {
+        "name": "grayboar_attack.ogg",
+        "type": "file",
+        "path": "effects\\grayboar_attack.ogg"
+    },
+    {
+        "name": "grayboar_damage1.ogg",
+        "type": "file",
+        "path": "effects\\grayboar_damage1.ogg"
+    },
+    {
+        "name": "grayboar_damage2.ogg",
+        "type": "file",
+        "path": "effects\\grayboar_damage2.ogg"
+    },
+    {
+        "name": "grayboar_damage3.ogg",
+        "type": "file",
+        "path": "effects\\grayboar_damage3.ogg"
+    },
+    {
+        "name": "grayboar_damage4.ogg",
+        "type": "file",
+        "path": "effects\\grayboar_damage4.ogg"
+    },
+    {
+        "name": "grayboar_idle1.ogg",
+        "type": "file",
+        "path": "effects\\grayboar_idle1.ogg"
+    },
+    {
+        "name": "grayboar_idle10.ogg",
+        "type": "file",
+        "path": "effects\\grayboar_idle10.ogg"
+    },
+    {
+        "name": "grayboar_idle11.ogg",
+        "type": "file",
+        "path": "effects\\grayboar_idle11.ogg"
+    },
+    {
+        "name": "grayboar_idle12.ogg",
+        "type": "file",
+        "path": "effects\\grayboar_idle12.ogg"
+    },
+    {
+        "name": "grayboar_idle13.ogg",
+        "type": "file",
+        "path": "effects\\grayboar_idle13.ogg"
+    },
+    {
+        "name": "grayboar_idle2.ogg",
+        "type": "file",
+        "path": "effects\\grayboar_idle2.ogg"
+    },
+    {
+        "name": "grayboar_idle3.ogg",
+        "type": "file",
+        "path": "effects\\grayboar_idle3.ogg"
+    },
+    {
+        "name": "grayboar_idle4.ogg",
+        "type": "file",
+        "path": "effects\\grayboar_idle4.ogg"
+    },
+    {
+        "name": "grayboar_idle5.ogg",
+        "type": "file",
+        "path": "effects\\grayboar_idle5.ogg"
+    },
+    {
+        "name": "grayboar_idle6.ogg",
+        "type": "file",
+        "path": "effects\\grayboar_idle6.ogg"
+    },
+    {
+        "name": "grayboar_idle7.ogg",
+        "type": "file",
+        "path": "effects\\grayboar_idle7.ogg"
+    },
+    {
+        "name": "grayboar_idle8.ogg",
+        "type": "file",
+        "path": "effects\\grayboar_idle8.ogg"
+    },
+    {
+        "name": "grayboar_idle9.ogg",
+        "type": "file",
+        "path": "effects\\grayboar_idle9.ogg"
+    },
+    {
+        "name": "grs.ogg",
+        "type": "file",
+        "path": "effects\\grs.ogg"
+    },
+    {
+        "name": "grunt_crit.ogg",
+        "type": "file",
+        "path": "effects\\grunt_crit.ogg"
+    },
+    {
+        "name": "grunt_damage_1.ogg",
+        "type": "file",
+        "path": "effects\\grunt_damage_1.ogg"
+    },
+    {
+        "name": "grunt_damage_2.ogg",
+        "type": "file",
+        "path": "effects\\grunt_damage_2.ogg"
+    },
+    {
+        "name": "grunt_damage_3.ogg",
+        "type": "file",
+        "path": "effects\\grunt_damage_3.ogg"
+    },
+    {
+        "name": "grunt_damage_4.ogg",
+        "type": "file",
+        "path": "effects\\grunt_damage_4.ogg"
+    },
+    {
+        "name": "grunt_damagebig_1.ogg",
+        "type": "file",
+        "path": "effects\\grunt_damagebig_1.ogg"
+    },
+    {
+        "name": "grunt_damagebig_2.ogg",
+        "type": "file",
+        "path": "effects\\grunt_damagebig_2.ogg"
+    },
+    {
+        "name": "grunt_damagebig_3.ogg",
+        "type": "file",
+        "path": "effects\\grunt_damagebig_3.ogg"
+    },
+    {
+        "name": "grunt_damagebig_4.ogg",
+        "type": "file",
+        "path": "effects\\grunt_damagebig_4.ogg"
+    },
+    {
+        "name": "grunt_death_1.ogg",
+        "type": "file",
+        "path": "effects\\grunt_death_1.ogg"
+    },
+    {
+        "name": "grunt_death_2.ogg",
+        "type": "file",
+        "path": "effects\\grunt_death_2.ogg"
+    },
+    {
+        "name": "gun111111111111.ogg",
+        "type": "file",
+        "path": "effects\\gun111111111111.ogg"
+    },
+    {
+        "name": "hoelufoattack1.ogg",
+        "type": "file",
+        "path": "effects\\hoelufoattack1.ogg"
+    },
+    {
+        "name": "hoelufoattack2.ogg",
+        "type": "file",
+        "path": "effects\\hoelufoattack2.ogg"
+    },
+    {
+        "name": "ignite.ogg",
+        "type": "file",
+        "path": "effects\\ignite.ogg"
+    },
+    {
+        "name": "impact.ogg",
+        "type": "file",
+        "path": "effects\\impact.ogg"
+    },
+    {
+        "name": "impostorprop_damage_-01.ogg",
+        "type": "file",
+        "path": "effects\\impostorprop_damage_-01.ogg"
+    },
+    {
+        "name": "impostorprop_damage_-02.ogg",
+        "type": "file",
+        "path": "effects\\impostorprop_damage_-02.ogg"
+    },
+    {
+        "name": "impostorprop_damage_-03.ogg",
+        "type": "file",
+        "path": "effects\\impostorprop_damage_-03.ogg"
+    },
+    {
+        "name": "impostorprop_damage_-04.ogg",
+        "type": "file",
+        "path": "effects\\impostorprop_damage_-04.ogg"
+    },
+    {
+        "name": "impostorprop_death_-01.ogg",
+        "type": "file",
+        "path": "effects\\impostorprop_death_-01.ogg"
+    },
+    {
+        "name": "impostorprop_death_-02.ogg",
+        "type": "file",
+        "path": "effects\\impostorprop_death_-02.ogg"
+    },
+    {
+        "name": "impostorprop_death_-03.ogg",
+        "type": "file",
+        "path": "effects\\impostorprop_death_-03.ogg"
+    },
+    {
+        "name": "impostorprop_idle-01.ogg",
+        "type": "file",
+        "path": "effects\\impostorprop_idle-01.ogg"
+    },
+    {
+        "name": "impostorprop_idle-02.ogg",
+        "type": "file",
+        "path": "effects\\impostorprop_idle-02.ogg"
+    },
+    {
+        "name": "impostorprop_idle-03.ogg",
+        "type": "file",
+        "path": "effects\\impostorprop_idle-03.ogg"
+    },
+    {
+        "name": "impostorprop_idle-04.ogg",
+        "type": "file",
+        "path": "effects\\impostorprop_idle-04.ogg"
+    },
+    {
+        "name": "impostorprop_idle-05.ogg",
+        "type": "file",
+        "path": "effects\\impostorprop_idle-05.ogg"
+    },
+    {
+        "name": "impostorprop_idle-06.ogg",
+        "type": "file",
+        "path": "effects\\impostorprop_idle-06.ogg"
+    },
+    {
+        "name": "invaders_beep.ogg",
+        "type": "file",
+        "path": "effects\\invaders_beep.ogg"
+    },
+    {
+        "name": "invaders_beep_hq.ogg",
+        "type": "file",
+        "path": "effects\\invaders_beep_hq.ogg"
+    },
+    {
+        "name": "invaders_beep_lq.ogg",
+        "type": "file",
+        "path": "effects\\invaders_beep_lq.ogg"
+    },
+    {
+        "name": "inventory_0.ogg",
+        "type": "file",
+        "path": "effects\\inventory_0.ogg"
+    },
+    {
+        "name": "inventory_1.ogg",
+        "type": "file",
+        "path": "effects\\inventory_1.ogg"
+    },
+    {
+        "name": "inventory_2.ogg",
+        "type": "file",
+        "path": "effects\\inventory_2.ogg"
+    },
+    {
+        "name": "inventory_3.ogg",
+        "type": "file",
+        "path": "effects\\inventory_3.ogg"
+    },
+    {
+        "name": "jolemonkemode.ogg",
+        "type": "file",
+        "path": "effects\\jolemonkemode.ogg"
+    },
+    {
+        "name": "kauai-01.ogg",
+        "type": "file",
+        "path": "effects\\kauai-01.ogg"
+    },
+    {
+        "name": "kauai-02.ogg",
+        "type": "file",
+        "path": "effects\\kauai-02.ogg"
+    },
+    {
+        "name": "kauai-03.ogg",
+        "type": "file",
+        "path": "effects\\kauai-03.ogg"
+    },
+    {
+        "name": "kauai-04.ogg",
+        "type": "file",
+        "path": "effects\\kauai-04.ogg"
+    },
+    {
+        "name": "kauai-05.ogg",
+        "type": "file",
+        "path": "effects\\kauai-05.ogg"
+    },
+    {
+        "name": "kauai-06.ogg",
+        "type": "file",
+        "path": "effects\\kauai-06.ogg"
+    },
+    {
+        "name": "kauai-07.ogg",
+        "type": "file",
+        "path": "effects\\kauai-07.ogg"
+    },
+    {
+        "name": "kauai-08.ogg",
+        "type": "file",
+        "path": "effects\\kauai-08.ogg"
+    },
+    {
+        "name": "kauai-09.ogg",
+        "type": "file",
+        "path": "effects\\kauai-09.ogg"
+    },
+    {
+        "name": "keljoyfoot1.ogg",
+        "type": "file",
+        "path": "effects\\keljoyfoot1.ogg"
+    },
+    {
+        "name": "keljoyfoot2.ogg",
+        "type": "file",
+        "path": "effects\\keljoyfoot2.ogg"
+    },
+    {
+        "name": "keljoyhasspawnedin.ogg",
+        "type": "file",
+        "path": "effects\\keljoyhasspawnedin.ogg"
+    },
+    {
+        "name": "kerfur2meow-01.ogg",
+        "type": "file",
+        "path": "effects\\kerfur2meow-01.ogg"
+    },
+    {
+        "name": "kerfur2meow-02.ogg",
+        "type": "file",
+        "path": "effects\\kerfur2meow-02.ogg"
+    },
+    {
+        "name": "kerfur2meow-03.ogg",
+        "type": "file",
+        "path": "effects\\kerfur2meow-03.ogg"
+    },
+    {
+        "name": "kerfurexe.ogg",
+        "type": "file",
+        "path": "effects\\kerfurexe.ogg"
+    },
+    {
+        "name": "kerfurofuckingdies.ogg",
+        "type": "file",
+        "path": "effects\\kerfurofuckingdies.ogg"
+    },
+    {
+        "name": "ladder_0.ogg",
+        "type": "file",
+        "path": "effects\\ladder_0.ogg"
+    },
+    {
+        "name": "ladder_1.ogg",
+        "type": "file",
+        "path": "effects\\ladder_1.ogg"
+    },
+    {
+        "name": "ladder_2.ogg",
+        "type": "file",
+        "path": "effects\\ladder_2.ogg"
+    },
+    {
+        "name": "ladder_3.ogg",
+        "type": "file",
+        "path": "effects\\ladder_3.ogg"
+    },
+    {
+        "name": "lambertspawn.ogg",
+        "type": "file",
+        "path": "effects\\lambertspawn.ogg"
+    },
+    {
+        "name": "lever-01.ogg",
+        "type": "file",
+        "path": "effects\\lever-01.ogg"
+    },
+    {
+        "name": "lever-02.ogg",
+        "type": "file",
+        "path": "effects\\lever-02.ogg"
+    },
+    {
+        "name": "lever-03.ogg",
+        "type": "file",
+        "path": "effects\\lever-03.ogg"
+    },
+    {
+        "name": "lever-04.ogg",
+        "type": "file",
+        "path": "effects\\lever-04.ogg"
+    },
+    {
+        "name": "lever-05.ogg",
+        "type": "file",
+        "path": "effects\\lever-05.ogg"
+    },
+    {
+        "name": "lever-06.ogg",
+        "type": "file",
+        "path": "effects\\lever-06.ogg"
+    },
+    {
+        "name": "lever-07.ogg",
+        "type": "file",
+        "path": "effects\\lever-07.ogg"
+    },
+    {
+        "name": "lever-08.ogg",
+        "type": "file",
+        "path": "effects\\lever-08.ogg"
+    },
+    {
+        "name": "lifecrystalspeak-01.ogg",
+        "type": "file",
+        "path": "effects\\lifecrystalspeak-01.ogg"
+    },
+    {
+        "name": "lifecrystalspeak-02.ogg",
+        "type": "file",
+        "path": "effects\\lifecrystalspeak-02.ogg"
+    },
+    {
+        "name": "lifecrystalspeak-03.ogg",
+        "type": "file",
+        "path": "effects\\lifecrystalspeak-03.ogg"
+    },
+    {
+        "name": "lifecrystalspeak-04.ogg",
+        "type": "file",
+        "path": "effects\\lifecrystalspeak-04.ogg"
+    },
+    {
+        "name": "lifecrystalspeak-05.ogg",
+        "type": "file",
+        "path": "effects\\lifecrystalspeak-05.ogg"
+    },
+    {
+        "name": "lifecrystalspeak-06.ogg",
+        "type": "file",
+        "path": "effects\\lifecrystalspeak-06.ogg"
+    },
+    {
+        "name": "lifecrystalspeak-07.ogg",
+        "type": "file",
+        "path": "effects\\lifecrystalspeak-07.ogg"
+    },
+    {
+        "name": "lifecrystalspeak-08.ogg",
+        "type": "file",
+        "path": "effects\\lifecrystalspeak-08.ogg"
+    },
+    {
+        "name": "lightswitch.ogg",
+        "type": "file",
+        "path": "effects\\lightswitch.ogg"
+    },
+    {
+        "name": "locker_close.ogg",
+        "type": "file",
+        "path": "effects\\locker_close.ogg"
+    },
+    {
+        "name": "locker_move.ogg",
+        "type": "file",
+        "path": "effects\\locker_move.ogg"
+    },
+    {
+        "name": "locker_open.ogg",
+        "type": "file",
+        "path": "effects\\locker_open.ogg"
+    },
+    {
+        "name": "meow.ogg",
+        "type": "file",
+        "path": "effects\\meow.ogg"
+    },
+    {
+        "name": "meow0.ogg",
+        "type": "file",
+        "path": "effects\\meow0.ogg"
+    },
+    {
+        "name": "meow1.ogg",
+        "type": "file",
+        "path": "effects\\meow1.ogg"
+    },
+    {
+        "name": "meow2.ogg",
+        "type": "file",
+        "path": "effects\\meow2.ogg"
+    },
+    {
+        "name": "meow3.ogg",
+        "type": "file",
+        "path": "effects\\meow3.ogg"
+    },
+    {
+        "name": "meowfix_0.ogg",
+        "type": "file",
+        "path": "effects\\meowfix_0.ogg"
+    },
+    {
+        "name": "meowfix_1.ogg",
+        "type": "file",
+        "path": "effects\\meowfix_1.ogg"
+    },
+    {
+        "name": "meowfix_2.ogg",
+        "type": "file",
+        "path": "effects\\meowfix_2.ogg"
+    },
+    {
+        "name": "metaldoorknock_0.ogg",
+        "type": "file",
+        "path": "effects\\metaldoorknock_0.ogg"
+    },
+    {
+        "name": "metaldoorknock_1.ogg",
+        "type": "file",
+        "path": "effects\\metaldoorknock_1.ogg"
+    },
+    {
+        "name": "metaldoorknock_2.ogg",
+        "type": "file",
+        "path": "effects\\metaldoorknock_2.ogg"
+    },
+    {
+        "name": "microwave_close.ogg",
+        "type": "file",
+        "path": "effects\\microwave_close.ogg"
+    },
+    {
+        "name": "microwave_deny.ogg",
+        "type": "file",
+        "path": "effects\\microwave_deny.ogg"
+    },
+    {
+        "name": "microwave_ding.ogg",
+        "type": "file",
+        "path": "effects\\microwave_ding.ogg"
+    },
+    {
+        "name": "microwave_loop.ogg",
+        "type": "file",
+        "path": "effects\\microwave_loop.ogg"
+    },
+    {
+        "name": "microwave_open.ogg",
+        "type": "file",
+        "path": "effects\\microwave_open.ogg"
+    },
+    {
+        "name": "minerfans_coolers.ogg",
+        "type": "file",
+        "path": "effects\\minerfans_coolers.ogg"
+    },
+    {
+        "name": "minerfans_gpus.ogg",
+        "type": "file",
+        "path": "effects\\minerfans_gpus.ogg"
+    },
+    {
+        "name": "moniqspawned.ogg",
+        "type": "file",
+        "path": "effects\\moniqspawned.ogg"
+    },
+    {
+        "name": "moniquse.ogg",
+        "type": "file",
+        "path": "effects\\moniquse.ogg"
+    },
+    {
+        "name": "murderfurvoice-01.ogg",
+        "type": "file",
+        "path": "effects\\murderfurvoice-01.ogg"
+    },
+    {
+        "name": "murderfurvoice-02.ogg",
+        "type": "file",
+        "path": "effects\\murderfurvoice-02.ogg"
+    },
+    {
+        "name": "murderfurvoice-03.ogg",
+        "type": "file",
+        "path": "effects\\murderfurvoice-03.ogg"
+    },
+    {
+        "name": "murderfurvoice-04.ogg",
+        "type": "file",
+        "path": "effects\\murderfurvoice-04.ogg"
+    },
+    {
+        "name": "murderfurvoice-05.ogg",
+        "type": "file",
+        "path": "effects\\murderfurvoice-05.ogg"
+    },
+    {
+        "name": "murderfurvoice-06.ogg",
+        "type": "file",
+        "path": "effects\\murderfurvoice-06.ogg"
+    },
+    {
+        "name": "murderfurvoice-07.ogg",
+        "type": "file",
+        "path": "effects\\murderfurvoice-07.ogg"
+    },
+    {
+        "name": "murderfurvoice-08.ogg",
+        "type": "file",
+        "path": "effects\\murderfurvoice-08.ogg"
+    },
+    {
+        "name": "murderfurvoice-09.ogg",
+        "type": "file",
+        "path": "effects\\murderfurvoice-09.ogg"
+    },
+    {
+        "name": "murderfurvoice-10.ogg",
+        "type": "file",
+        "path": "effects\\murderfurvoice-10.ogg"
+    },
+    {
+        "name": "murderfurvoice-11.ogg",
+        "type": "file",
+        "path": "effects\\murderfurvoice-11.ogg"
+    },
+    {
+        "name": "murderfurvoice-12.ogg",
+        "type": "file",
+        "path": "effects\\murderfurvoice-12.ogg"
+    },
+    {
+        "name": "murderfurvoice-13.ogg",
+        "type": "file",
+        "path": "effects\\murderfurvoice-13.ogg"
+    },
+    {
+        "name": "noise.ogg",
+        "type": "file",
+        "path": "effects\\noise.ogg"
+    },
+    {
+        "name": "notepadcrumple.ogg",
+        "type": "file",
+        "path": "effects\\notepadcrumple.ogg"
+    },
+    {
+        "name": "notepadflip.ogg",
+        "type": "file",
+        "path": "effects\\notepadflip.ogg"
+    },
+    {
+        "name": "obelisk_enter.ogg",
+        "type": "file",
+        "path": "effects\\obelisk_enter.ogg"
+    },
+    {
+        "name": "obelisk_fall.ogg",
+        "type": "file",
+        "path": "effects\\obelisk_fall.ogg"
+    },
+    {
+        "name": "obelisk_land.ogg",
+        "type": "file",
+        "path": "effects\\obelisk_land.ogg"
+    },
+    {
+        "name": "object_grab.ogg",
+        "type": "file",
+        "path": "effects\\object_grab.ogg"
+    },
+    {
+        "name": "object_hold_loop.ogg",
+        "type": "file",
+        "path": "effects\\object_hold_loop.ogg"
+    },
+    {
+        "name": "object_release.ogg",
+        "type": "file",
+        "path": "effects\\object_release.ogg"
+    },
+    {
+        "name": "object_throw.ogg",
+        "type": "file",
+        "path": "effects\\object_throw.ogg"
+    },
+    {
+        "name": "octbeamloop.ogg",
+        "type": "file",
+        "path": "effects\\octbeamloop.ogg"
+    },
+    {
+        "name": "octbeamshoot.ogg",
+        "type": "file",
+        "path": "effects\\octbeamshoot.ogg"
+    },
+    {
+        "name": "octcharge.ogg",
+        "type": "file",
+        "path": "effects\\octcharge.ogg"
+    },
+    {
+        "name": "outerspacepool.ogg",
+        "type": "file",
+        "path": "effects\\outerspacepool.ogg"
+    },
+    {
+        "name": "outsidealien-01.ogg",
+        "type": "file",
+        "path": "effects\\outsidealien-01.ogg"
+    },
+    {
+        "name": "outsidealien-02.ogg",
+        "type": "file",
+        "path": "effects\\outsidealien-02.ogg"
+    },
+    {
+        "name": "outsidealien-03.ogg",
+        "type": "file",
+        "path": "effects\\outsidealien-03.ogg"
+    },
+    {
+        "name": "outsidealien-04.ogg",
+        "type": "file",
+        "path": "effects\\outsidealien-04.ogg"
+    },
+    {
+        "name": "outsidealien-05.ogg",
+        "type": "file",
+        "path": "effects\\outsidealien-05.ogg"
+    },
+    {
+        "name": "outsidealien-06.ogg",
+        "type": "file",
+        "path": "effects\\outsidealien-06.ogg"
+    },
+    {
+        "name": "outsidealien-07.ogg",
+        "type": "file",
+        "path": "effects\\outsidealien-07.ogg"
+    },
+    {
+        "name": "outsidealien-08.ogg",
+        "type": "file",
+        "path": "effects\\outsidealien-08.ogg"
+    },
+    {
+        "name": "pcshutdown.ogg",
+        "type": "file",
+        "path": "effects\\pcshutdown.ogg"
+    },
+    {
+        "name": "pcstartup.ogg",
+        "type": "file",
+        "path": "effects\\pcstartup.ogg"
+    },
+    {
+        "name": "pillfoloop.ogg",
+        "type": "file",
+        "path": "effects\\pillfoloop.ogg"
+    },
+    {
+        "name": "piramid_step_close-01.ogg",
+        "type": "file",
+        "path": "effects\\piramid_step_close-01.ogg"
+    },
+    {
+        "name": "piramid_step_close-02.ogg",
+        "type": "file",
+        "path": "effects\\piramid_step_close-02.ogg"
+    },
+    {
+        "name": "piramid_step_close-03.ogg",
+        "type": "file",
+        "path": "effects\\piramid_step_close-03.ogg"
+    },
+    {
+        "name": "piramid_step_close-04.ogg",
+        "type": "file",
+        "path": "effects\\piramid_step_close-04.ogg"
+    },
+    {
+        "name": "piramid_step_far-01.ogg",
+        "type": "file",
+        "path": "effects\\piramid_step_far-01.ogg"
+    },
+    {
+        "name": "piramid_step_far-02.ogg",
+        "type": "file",
+        "path": "effects\\piramid_step_far-02.ogg"
+    },
+    {
+        "name": "piramid_step_far-03.ogg",
+        "type": "file",
+        "path": "effects\\piramid_step_far-03.ogg"
+    },
+    {
+        "name": "piramid_step_far-04.ogg",
+        "type": "file",
+        "path": "effects\\piramid_step_far-04.ogg"
+    },
+    {
+        "name": "piramid_step_med-01.ogg",
+        "type": "file",
+        "path": "effects\\piramid_step_med-01.ogg"
+    },
+    {
+        "name": "piramid_step_med-02.ogg",
+        "type": "file",
+        "path": "effects\\piramid_step_med-02.ogg"
+    },
+    {
+        "name": "piramid_step_med-03.ogg",
+        "type": "file",
+        "path": "effects\\piramid_step_med-03.ogg"
+    },
+    {
+        "name": "piramid_step_med-04.ogg",
+        "type": "file",
+        "path": "effects\\piramid_step_med-04.ogg"
+    },
+    {
+        "name": "piramid_step_sfar-01.ogg",
+        "type": "file",
+        "path": "effects\\piramid_step_sfar-01.ogg"
+    },
+    {
+        "name": "piramid_step_sfar-02.ogg",
+        "type": "file",
+        "path": "effects\\piramid_step_sfar-02.ogg"
+    },
+    {
+        "name": "piramid_step_sfar-03.ogg",
+        "type": "file",
+        "path": "effects\\piramid_step_sfar-03.ogg"
+    },
+    {
+        "name": "piramid_step_sfar-04.ogg",
+        "type": "file",
+        "path": "effects\\piramid_step_sfar-04.ogg"
+    },
+    {
+        "name": "piramidping.ogg",
+        "type": "file",
+        "path": "effects\\piramidping.ogg"
+    },
+    {
+        "name": "piramidping_0.ogg",
+        "type": "file",
+        "path": "effects\\piramidping_0.ogg"
+    },
+    {
+        "name": "piramidping_1.ogg",
+        "type": "file",
+        "path": "effects\\piramidping_1.ogg"
+    },
+    {
+        "name": "piramidping_2.ogg",
+        "type": "file",
+        "path": "effects\\piramidping_2.ogg"
+    },
+    {
+        "name": "piramidping_3.ogg",
+        "type": "file",
+        "path": "effects\\piramidping_3.ogg"
+    },
+    {
+        "name": "piramidstepclose_1.ogg",
+        "type": "file",
+        "path": "effects\\piramidstepclose_1.ogg"
+    },
+    {
+        "name": "piramidstepclose_2.ogg",
+        "type": "file",
+        "path": "effects\\piramidstepclose_2.ogg"
+    },
+    {
+        "name": "piramidstepclose_3.ogg",
+        "type": "file",
+        "path": "effects\\piramidstepclose_3.ogg"
+    },
+    {
+        "name": "piramidstepclose_4.ogg",
+        "type": "file",
+        "path": "effects\\piramidstepclose_4.ogg"
+    },
+    {
+        "name": "piramidstepfar_1.ogg",
+        "type": "file",
+        "path": "effects\\piramidstepfar_1.ogg"
+    },
+    {
+        "name": "piramidstepfar_2.ogg",
+        "type": "file",
+        "path": "effects\\piramidstepfar_2.ogg"
+    },
+    {
+        "name": "piramidstepfar_3.ogg",
+        "type": "file",
+        "path": "effects\\piramidstepfar_3.ogg"
+    },
+    {
+        "name": "piramidstepfar_4.ogg",
+        "type": "file",
+        "path": "effects\\piramidstepfar_4.ogg"
+    },
+    {
+        "name": "pl_falldeath.ogg",
+        "type": "file",
+        "path": "effects\\pl_falldeath.ogg"
+    },
+    {
+        "name": "plat1_loop.ogg",
+        "type": "file",
+        "path": "effects\\plat1_loop.ogg"
+    },
+    {
+        "name": "plat1_start.ogg",
+        "type": "file",
+        "path": "effects\\plat1_start.ogg"
+    },
+    {
+        "name": "plat1_stop.ogg",
+        "type": "file",
+        "path": "effects\\plat1_stop.ogg"
+    },
+    {
+        "name": "player_drowning_1.ogg",
+        "type": "file",
+        "path": "effects\\player_drowning_1.ogg"
+    },
+    {
+        "name": "player_drowning_2.ogg",
+        "type": "file",
+        "path": "effects\\player_drowning_2.ogg"
+    },
+    {
+        "name": "player_drowning_3.ogg",
+        "type": "file",
+        "path": "effects\\player_drowning_3.ogg"
+    },
+    {
+        "name": "player_hurt_0.ogg",
+        "type": "file",
+        "path": "effects\\player_hurt_0.ogg"
+    },
+    {
+        "name": "player_hurt_1.ogg",
+        "type": "file",
+        "path": "effects\\player_hurt_1.ogg"
+    },
+    {
+        "name": "player_hurt_2.ogg",
+        "type": "file",
+        "path": "effects\\player_hurt_2.ogg"
+    },
+    {
+        "name": "poop_0.ogg",
+        "type": "file",
+        "path": "effects\\poop_0.ogg"
+    },
+    {
+        "name": "poop_1.ogg",
+        "type": "file",
+        "path": "effects\\poop_1.ogg"
+    },
+    {
+        "name": "poop_2.ogg",
+        "type": "file",
+        "path": "effects\\poop_2.ogg"
+    },
+    {
+        "name": "powerdown.ogg",
+        "type": "file",
+        "path": "effects\\powerdown.ogg"
+    },
+    {
+        "name": "puddleidle-01.ogg",
+        "type": "file",
+        "path": "effects\\puddleidle-01.ogg"
+    },
+    {
+        "name": "puddleidle-02.ogg",
+        "type": "file",
+        "path": "effects\\puddleidle-02.ogg"
+    },
+    {
+        "name": "puddleidle-03.ogg",
+        "type": "file",
+        "path": "effects\\puddleidle-03.ogg"
+    },
+    {
+        "name": "puddleidle-04.ogg",
+        "type": "file",
+        "path": "effects\\puddleidle-04.ogg"
+    },
+    {
+        "name": "puddleidle-05.ogg",
+        "type": "file",
+        "path": "effects\\puddleidle-05.ogg"
+    },
+    {
+        "name": "puddleidle-06.ogg",
+        "type": "file",
+        "path": "effects\\puddleidle-06.ogg"
+    },
+    {
+        "name": "puffballspores.ogg",
+        "type": "file",
+        "path": "effects\\puffballspores.ogg"
+    },
+    {
+        "name": "puffballsporesfar.ogg",
+        "type": "file",
+        "path": "effects\\puffballsporesfar.ogg"
+    },
+    {
+        "name": "pukinlugh.ogg",
+        "type": "file",
+        "path": "effects\\pukinlugh.ogg"
+    },
+    {
+        "name": "qwak.ogg",
+        "type": "file",
+        "path": "effects\\qwak.ogg"
+    },
+    {
+        "name": "qweqwe.tga",
+        "type": "file",
+        "path": "effects\\qweqwe.tga"
+    },
+    {
+        "name": "radioconnect.ogg",
+        "type": "file",
+        "path": "effects\\radioconnect.ogg"
+    },
+    {
+        "name": "radionoise.ogg",
+        "type": "file",
+        "path": "effects\\radionoise.ogg"
+    },
+    {
+        "name": "reload_auto.ogg",
+        "type": "file",
+        "path": "effects\\reload_auto.ogg"
+    },
+    {
+        "name": "reload_dbarrel.ogg",
+        "type": "file",
+        "path": "effects\\reload_dbarrel.ogg"
+    },
+    {
+        "name": "reload_pistol.ogg",
+        "type": "file",
+        "path": "effects\\reload_pistol.ogg"
+    },
+    {
+        "name": "reload_rifle.ogg",
+        "type": "file",
+        "path": "effects\\reload_rifle.ogg"
+    },
+    {
+        "name": "reload_shotgun.ogg",
+        "type": "file",
+        "path": "effects\\reload_shotgun.ogg"
+    },
+    {
+        "name": "ritualknife_in.ogg",
+        "type": "file",
+        "path": "effects\\ritualknife_in.ogg"
+    },
+    {
+        "name": "ritualknife_out.ogg",
+        "type": "file",
+        "path": "effects\\ritualknife_out.ogg"
+    },
+    {
+        "name": "roar.ogg",
+        "type": "file",
+        "path": "effects\\roar.ogg"
+    },
+    {
+        "name": "rocketfire.ogg",
+        "type": "file",
+        "path": "effects\\rocketfire.ogg"
+    },
+    {
+        "name": "rocketfire_loop.ogg",
+        "type": "file",
+        "path": "effects\\rocketfire_loop.ogg"
+    },
+    {
+        "name": "roomba_loop.ogg",
+        "type": "file",
+        "path": "effects\\roomba_loop.ogg"
+    },
+    {
+        "name": "roomba_off.ogg",
+        "type": "file",
+        "path": "effects\\roomba_off.ogg"
+    },
+    {
+        "name": "roomba_on.ogg",
+        "type": "file",
+        "path": "effects\\roomba_on.ogg"
+    },
+    {
+        "name": "roomwell_off.ogg",
+        "type": "file",
+        "path": "effects\\roomwell_off.ogg"
+    },
+    {
+        "name": "roomwell_on.ogg",
+        "type": "file",
+        "path": "effects\\roomwell_on.ogg"
+    },
+    {
+        "name": "rozamb.ogg",
+        "type": "file",
+        "path": "effects\\rozamb.ogg"
+    },
+    {
+        "name": "rozattack.ogg",
+        "type": "file",
+        "path": "effects\\rozattack.ogg"
+    },
+    {
+        "name": "rozbeam_begin.ogg",
+        "type": "file",
+        "path": "effects\\rozbeam_begin.ogg"
+    },
+    {
+        "name": "rozbeam_end.ogg",
+        "type": "file",
+        "path": "effects\\rozbeam_end.ogg"
+    },
+    {
+        "name": "rozbeam_init.ogg",
+        "type": "file",
+        "path": "effects\\rozbeam_init.ogg"
+    },
+    {
+        "name": "rozbeam_loop.ogg",
+        "type": "file",
+        "path": "effects\\rozbeam_loop.ogg"
+    },
+    {
+        "name": "rozdoor.ogg",
+        "type": "file",
+        "path": "effects\\rozdoor.ogg"
+    },
+    {
+        "name": "rozdoor2.ogg",
+        "type": "file",
+        "path": "effects\\rozdoor2.ogg"
+    },
+    {
+        "name": "rozgun1.ogg",
+        "type": "file",
+        "path": "effects\\rozgun1.ogg"
+    },
+    {
+        "name": "rozhis.ogg",
+        "type": "file",
+        "path": "effects\\rozhis.ogg"
+    },
+    {
+        "name": "rozlock1.ogg",
+        "type": "file",
+        "path": "effects\\rozlock1.ogg"
+    },
+    {
+        "name": "rozmov1.ogg",
+        "type": "file",
+        "path": "effects\\rozmov1.ogg"
+    },
+    {
+        "name": "rpgmode.ogg",
+        "type": "file",
+        "path": "effects\\rpgmode.ogg"
+    },
+    {
+        "name": "runein.ogg",
+        "type": "file",
+        "path": "effects\\runein.ogg"
+    },
+    {
+        "name": "s_call.ogg",
+        "type": "file",
+        "path": "effects\\s_call.ogg"
+    },
+    {
+        "name": "s_call2.ogg",
+        "type": "file",
+        "path": "effects\\s_call2.ogg"
+    },
+    {
+        "name": "sawsaw-01.ogg",
+        "type": "file",
+        "path": "effects\\sawsaw-01.ogg"
+    },
+    {
+        "name": "sawsaw-02.ogg",
+        "type": "file",
+        "path": "effects\\sawsaw-02.ogg"
+    },
+    {
+        "name": "sawsaw-03.ogg",
+        "type": "file",
+        "path": "effects\\sawsaw-03.ogg"
+    },
+    {
+        "name": "sawsaw-04.ogg",
+        "type": "file",
+        "path": "effects\\sawsaw-04.ogg"
+    },
+    {
+        "name": "screams.ogg",
+        "type": "file",
+        "path": "effects\\screams.ogg"
+    },
+    {
+        "name": "screamsloop.ogg",
+        "type": "file",
+        "path": "effects\\screamsloop.ogg"
+    },
+    {
+        "name": "scrstr.ogg",
+        "type": "file",
+        "path": "effects\\scrstr.ogg"
+    },
+    {
+        "name": "sell.ogg",
+        "type": "file",
+        "path": "effects\\sell.ogg"
+    },
+    {
+        "name": "serverdown.ogg",
+        "type": "file",
+        "path": "effects\\serverdown.ogg"
+    },
+    {
+        "name": "shot_auto.ogg",
+        "type": "file",
+        "path": "effects\\shot_auto.ogg"
+    },
+    {
+        "name": "shot_flaregun.ogg",
+        "type": "file",
+        "path": "effects\\shot_flaregun.ogg"
+    },
+    {
+        "name": "shot_grenadelauncher.ogg",
+        "type": "file",
+        "path": "effects\\shot_grenadelauncher.ogg"
+    },
+    {
+        "name": "shot_pistol.ogg",
+        "type": "file",
+        "path": "effects\\shot_pistol.ogg"
+    },
+    {
+        "name": "shot_rifle.ogg",
+        "type": "file",
+        "path": "effects\\shot_rifle.ogg"
+    },
+    {
+        "name": "shot_rpg.ogg",
+        "type": "file",
+        "path": "effects\\shot_rpg.ogg"
+    },
+    {
+        "name": "shot_shotgun.ogg",
+        "type": "file",
+        "path": "effects\\shot_shotgun.ogg"
+    },
+    {
+        "name": "shoveldig_0.ogg",
+        "type": "file",
+        "path": "effects\\shoveldig_0.ogg"
+    },
+    {
+        "name": "shoveldig_1.ogg",
+        "type": "file",
+        "path": "effects\\shoveldig_1.ogg"
+    },
+    {
+        "name": "shoveldig_2.ogg",
+        "type": "file",
+        "path": "effects\\shoveldig_2.ogg"
+    },
+    {
+        "name": "sig.ogg",
+        "type": "file",
+        "path": "effects\\sig.ogg"
+    },
+    {
+        "name": "siren_end.ogg",
+        "type": "file",
+        "path": "effects\\siren_end.ogg"
+    },
+    {
+        "name": "siren_loop.ogg",
+        "type": "file",
+        "path": "effects\\siren_loop.ogg"
+    },
+    {
+        "name": "skleon.ogg",
+        "type": "file",
+        "path": "effects\\skleon.ogg"
+    },
+    {
+        "name": "slip.ogg",
+        "type": "file",
+        "path": "effects\\slip.ogg"
+    },
+    {
+        "name": "sobloop.ogg",
+        "type": "file",
+        "path": "effects\\sobloop.ogg"
+    },
+    {
+        "name": "soltomiavoice-01.ogg",
+        "type": "file",
+        "path": "effects\\soltomiavoice-01.ogg"
+    },
+    {
+        "name": "soltomiavoice-02.ogg",
+        "type": "file",
+        "path": "effects\\soltomiavoice-02.ogg"
+    },
+    {
+        "name": "soltomiavoice-03.ogg",
+        "type": "file",
+        "path": "effects\\soltomiavoice-03.ogg"
+    },
+    {
+        "name": "soltomiavoice-04.ogg",
+        "type": "file",
+        "path": "effects\\soltomiavoice-04.ogg"
+    },
+    {
+        "name": "soltomiavoice-05.ogg",
+        "type": "file",
+        "path": "effects\\soltomiavoice-05.ogg"
+    },
+    {
+        "name": "soltomiavoice-06.ogg",
+        "type": "file",
+        "path": "effects\\soltomiavoice-06.ogg"
+    },
+    {
+        "name": "soltomiavoice-07.ogg",
+        "type": "file",
+        "path": "effects\\soltomiavoice-07.ogg"
+    },
+    {
+        "name": "soltomiavoice-08.ogg",
+        "type": "file",
+        "path": "effects\\soltomiavoice-08.ogg"
+    },
+    {
+        "name": "soltomiavoice-09.ogg",
+        "type": "file",
+        "path": "effects\\soltomiavoice-09.ogg"
+    },
+    {
+        "name": "soltomiavoice-10.ogg",
+        "type": "file",
+        "path": "effects\\soltomiavoice-10.ogg"
+    },
+    {
+        "name": "soltomiavoice-11.ogg",
+        "type": "file",
+        "path": "effects\\soltomiavoice-11.ogg"
+    },
+    {
+        "name": "soltomiavoice-12.ogg",
+        "type": "file",
+        "path": "effects\\soltomiavoice-12.ogg"
+    },
+    {
+        "name": "soltomiavoice-13.ogg",
+        "type": "file",
+        "path": "effects\\soltomiavoice-13.ogg"
+    },
+    {
+        "name": "soltomiavoice-14.ogg",
+        "type": "file",
+        "path": "effects\\soltomiavoice-14.ogg"
+    },
+    {
+        "name": "soltomiavoice-15.ogg",
+        "type": "file",
+        "path": "effects\\soltomiavoice-15.ogg"
+    },
+    {
+        "name": "soltomiavoice-16.ogg",
+        "type": "file",
+        "path": "effects\\soltomiavoice-16.ogg"
+    },
+    {
+        "name": "soltomiavoice-17.ogg",
+        "type": "file",
+        "path": "effects\\soltomiavoice-17.ogg"
+    },
+    {
+        "name": "soltomiavoice-18.ogg",
+        "type": "file",
+        "path": "effects\\soltomiavoice-18.ogg"
+    },
+    {
+        "name": "soltomiavoice-19.ogg",
+        "type": "file",
+        "path": "effects\\soltomiavoice-19.ogg"
+    },
+    {
+        "name": "soltomiavoice-20.ogg",
+        "type": "file",
+        "path": "effects\\soltomiavoice-20.ogg"
+    },
+    {
+        "name": "soltomiavoice-21.ogg",
+        "type": "file",
+        "path": "effects\\soltomiavoice-21.ogg"
+    },
+    {
+        "name": "soltomiavoice-22.ogg",
+        "type": "file",
+        "path": "effects\\soltomiavoice-22.ogg"
+    },
+    {
+        "name": "soltomiavoice-23.ogg",
+        "type": "file",
+        "path": "effects\\soltomiavoice-23.ogg"
+    },
+    {
+        "name": "sonar.ogg",
+        "type": "file",
+        "path": "effects\\sonar.ogg"
+    },
+    {
+        "name": "sonicgun.ogg",
+        "type": "file",
+        "path": "effects\\sonicgun.ogg"
+    },
+    {
+        "name": "spark_1.ogg",
+        "type": "file",
+        "path": "effects\\spark_1.ogg"
+    },
+    {
+        "name": "spark_2.ogg",
+        "type": "file",
+        "path": "effects\\spark_2.ogg"
+    },
+    {
+        "name": "spark_3.ogg",
+        "type": "file",
+        "path": "effects\\spark_3.ogg"
+    },
+    {
+        "name": "spark_4.ogg",
+        "type": "file",
+        "path": "effects\\spark_4.ogg"
+    },
+    {
+        "name": "spark_5.ogg",
+        "type": "file",
+        "path": "effects\\spark_5.ogg"
+    },
+    {
+        "name": "spark_6.ogg",
+        "type": "file",
+        "path": "effects\\spark_6.ogg"
+    },
+    {
+        "name": "sparklong-01.ogg",
+        "type": "file",
+        "path": "effects\\sparklong-01.ogg"
+    },
+    {
+        "name": "sparklong-02.ogg",
+        "type": "file",
+        "path": "effects\\sparklong-02.ogg"
+    },
+    {
+        "name": "sparklong-03.ogg",
+        "type": "file",
+        "path": "effects\\sparklong-03.ogg"
+    },
+    {
+        "name": "sparklong-04.ogg",
+        "type": "file",
+        "path": "effects\\sparklong-04.ogg"
+    },
+    {
+        "name": "sparkmed-01.ogg",
+        "type": "file",
+        "path": "effects\\sparkmed-01.ogg"
+    },
+    {
+        "name": "sparkmed-02.ogg",
+        "type": "file",
+        "path": "effects\\sparkmed-02.ogg"
+    },
+    {
+        "name": "sparkmed-03.ogg",
+        "type": "file",
+        "path": "effects\\sparkmed-03.ogg"
+    },
+    {
+        "name": "sparksh-01.ogg",
+        "type": "file",
+        "path": "effects\\sparksh-01.ogg"
+    },
+    {
+        "name": "sparksh-02.ogg",
+        "type": "file",
+        "path": "effects\\sparksh-02.ogg"
+    },
+    {
+        "name": "sparksh-03.ogg",
+        "type": "file",
+        "path": "effects\\sparksh-03.ogg"
+    },
+    {
+        "name": "sparksh-04.ogg",
+        "type": "file",
+        "path": "effects\\sparksh-04.ogg"
+    },
+    {
+        "name": "spikeout.ogg",
+        "type": "file",
+        "path": "effects\\spikeout.ogg"
+    },
+    {
+        "name": "spk_0.ogg",
+        "type": "file",
+        "path": "effects\\spk_0.ogg"
+    },
+    {
+        "name": "spk_1.ogg",
+        "type": "file",
+        "path": "effects\\spk_1.ogg"
+    },
+    {
+        "name": "spk_2.ogg",
+        "type": "file",
+        "path": "effects\\spk_2.ogg"
+    },
+    {
+        "name": "spk_3.ogg",
+        "type": "file",
+        "path": "effects\\spk_3.ogg"
+    },
+    {
+        "name": "spk_4.ogg",
+        "type": "file",
+        "path": "effects\\spk_4.ogg"
+    },
+    {
+        "name": "spk_5.ogg",
+        "type": "file",
+        "path": "effects\\spk_5.ogg"
+    },
+    {
+        "name": "spk_6.ogg",
+        "type": "file",
+        "path": "effects\\spk_6.ogg"
+    },
+    {
+        "name": "spk_7.ogg",
+        "type": "file",
+        "path": "effects\\spk_7.ogg"
+    },
+    {
+        "name": "spk_8.ogg",
+        "type": "file",
+        "path": "effects\\spk_8.ogg"
+    },
+    {
+        "name": "spk_9.ogg",
+        "type": "file",
+        "path": "effects\\spk_9.ogg"
+    },
+    {
+        "name": "spk_comma.ogg",
+        "type": "file",
+        "path": "effects\\spk_comma.ogg"
+    },
+    {
+        "name": "spk_non.ogg",
+        "type": "file",
+        "path": "effects\\spk_non.ogg"
+    },
+    {
+        "name": "stab-01.ogg",
+        "type": "file",
+        "path": "effects\\stab-01.ogg"
+    },
+    {
+        "name": "stab-02.ogg",
+        "type": "file",
+        "path": "effects\\stab-02.ogg"
+    },
+    {
+        "name": "stab-03.ogg",
+        "type": "file",
+        "path": "effects\\stab-03.ogg"
+    },
+    {
+        "name": "stab-04.ogg",
+        "type": "file",
+        "path": "effects\\stab-04.ogg"
+    },
+    {
+        "name": "stationturnoff.ogg",
+        "type": "file",
+        "path": "effects\\stationturnoff.ogg"
+    },
+    {
+        "name": "stationturnon.ogg",
+        "type": "file",
+        "path": "effects\\stationturnon.ogg"
+    },
+    {
+        "name": "steamburst1.ogg",
+        "type": "file",
+        "path": "effects\\steamburst1.ogg"
+    },
+    {
+        "name": "steamburst2.ogg",
+        "type": "file",
+        "path": "effects\\steamburst2.ogg"
+    },
+    {
+        "name": "stick1.ogg",
+        "type": "file",
+        "path": "effects\\stick1.ogg"
+    },
+    {
+        "name": "stick2.ogg",
+        "type": "file",
+        "path": "effects\\stick2.ogg"
+    },
+    {
+        "name": "stick3.ogg",
+        "type": "file",
+        "path": "effects\\stick3.ogg"
+    },
+    {
+        "name": "stockcreepyhalloweenevillaughsoundeffect.ogg",
+        "type": "file",
+        "path": "effects\\stockcreepyhalloweenevillaughsoundeffect.ogg"
+    },
+    {
+        "name": "superboom.ogg",
+        "type": "file",
+        "path": "effects\\superboom.ogg"
+    },
+    {
+        "name": "supershart.ogg",
+        "type": "file",
+        "path": "effects\\supershart.ogg"
+    },
+    {
+        "name": "swing.ogg",
+        "type": "file",
+        "path": "effects\\swing.ogg"
+    },
+    {
+        "name": "swing1.ogg",
+        "type": "file",
+        "path": "effects\\swing1.ogg"
+    },
+    {
+        "name": "swing2.ogg",
+        "type": "file",
+        "path": "effects\\swing2.ogg"
+    },
+    {
+        "name": "tardis_despawn.ogg",
+        "type": "file",
+        "path": "effects\\tardis_despawn.ogg"
+    },
+    {
+        "name": "tardis_spawn.ogg",
+        "type": "file",
+        "path": "effects\\tardis_spawn.ogg"
+    },
+    {
+        "name": "teleport1.ogg",
+        "type": "file",
+        "path": "effects\\teleport1.ogg"
+    },
+    {
+        "name": "teleport2.ogg",
+        "type": "file",
+        "path": "effects\\teleport2.ogg"
+    },
+    {
+        "name": "teleport3.ogg",
+        "type": "file",
+        "path": "effects\\teleport3.ogg"
+    },
+    {
+        "name": "tentacleballchargeloop.ogg",
+        "type": "file",
+        "path": "effects\\tentacleballchargeloop.ogg"
+    },
+    {
+        "name": "tentacleballtalk-01.ogg",
+        "type": "file",
+        "path": "effects\\tentacleballtalk-01.ogg"
+    },
+    {
+        "name": "tentacleballtalk-02.ogg",
+        "type": "file",
+        "path": "effects\\tentacleballtalk-02.ogg"
+    },
+    {
+        "name": "tentacleballtalk-03.ogg",
+        "type": "file",
+        "path": "effects\\tentacleballtalk-03.ogg"
+    },
+    {
+        "name": "tentacleballtalk-04.ogg",
+        "type": "file",
+        "path": "effects\\tentacleballtalk-04.ogg"
+    },
+    {
+        "name": "tentacleballtalk-05.ogg",
+        "type": "file",
+        "path": "effects\\tentacleballtalk-05.ogg"
+    },
+    {
+        "name": "tentacleballtalk-06.ogg",
+        "type": "file",
+        "path": "effects\\tentacleballtalk-06.ogg"
+    },
+    {
+        "name": "tentacleballtalk-07.ogg",
+        "type": "file",
+        "path": "effects\\tentacleballtalk-07.ogg"
+    },
+    {
+        "name": "tentacleballtalk-08.ogg",
+        "type": "file",
+        "path": "effects\\tentacleballtalk-08.ogg"
+    },
+    {
+        "name": "tentacleballtalk-09.ogg",
+        "type": "file",
+        "path": "effects\\tentacleballtalk-09.ogg"
+    },
+    {
+        "name": "tentacleballtalk-10.ogg",
+        "type": "file",
+        "path": "effects\\tentacleballtalk-10.ogg"
+    },
+    {
+        "name": "tentacleballtalk-11.ogg",
+        "type": "file",
+        "path": "effects\\tentacleballtalk-11.ogg"
+    },
+    {
+        "name": "tentacleballtalk-12.ogg",
+        "type": "file",
+        "path": "effects\\tentacleballtalk-12.ogg"
+    },
+    {
+        "name": "tentacleballtalk-13.ogg",
+        "type": "file",
+        "path": "effects\\tentacleballtalk-13.ogg"
+    },
+    {
+        "name": "tentacleballtalk-14.ogg",
+        "type": "file",
+        "path": "effects\\tentacleballtalk-14.ogg"
+    },
+    {
+        "name": "tentacleballtalk-15.ogg",
+        "type": "file",
+        "path": "effects\\tentacleballtalk-15.ogg"
+    },
+    {
+        "name": "tentacleballtalk-16.ogg",
+        "type": "file",
+        "path": "effects\\tentacleballtalk-16.ogg"
+    },
+    {
+        "name": "tentacleballtalk-17.ogg",
+        "type": "file",
+        "path": "effects\\tentacleballtalk-17.ogg"
+    },
+    {
+        "name": "tentacleballtalk-18.ogg",
+        "type": "file",
+        "path": "effects\\tentacleballtalk-18.ogg"
+    },
+    {
+        "name": "tentacleballtalk-19.ogg",
+        "type": "file",
+        "path": "effects\\tentacleballtalk-19.ogg"
+    },
+    {
+        "name": "tentacleballtalk-20.ogg",
+        "type": "file",
+        "path": "effects\\tentacleballtalk-20.ogg"
+    },
+    {
+        "name": "tentacleballtalk-21.ogg",
+        "type": "file",
+        "path": "effects\\tentacleballtalk-21.ogg"
+    },
+    {
+        "name": "tentacleballtalk-22.ogg",
+        "type": "file",
+        "path": "effects\\tentacleballtalk-22.ogg"
+    },
+    {
+        "name": "tentacleballtalk-23.ogg",
+        "type": "file",
+        "path": "effects\\tentacleballtalk-23.ogg"
+    },
+    {
+        "name": "tick1.ogg",
+        "type": "file",
+        "path": "effects\\tick1.ogg"
+    },
+    {
+        "name": "ticks.ogg",
+        "type": "file",
+        "path": "effects\\ticks.ogg"
+    },
+    {
+        "name": "timefast.ogg",
+        "type": "file",
+        "path": "effects\\timefast.ogg"
+    },
+    {
+        "name": "timeslow.ogg",
+        "type": "file",
+        "path": "effects\\timeslow.ogg"
+    },
+    {
+        "name": "tone_saw.ogg",
+        "type": "file",
+        "path": "effects\\tone_saw.ogg"
+    },
+    {
+        "name": "tone_sine.ogg",
+        "type": "file",
+        "path": "effects\\tone_sine.ogg"
+    },
+    {
+        "name": "tone_square.ogg",
+        "type": "file",
+        "path": "effects\\tone_square.ogg"
+    },
+    {
+        "name": "toomanymushrooms.ogg",
+        "type": "file",
+        "path": "effects\\toomanymushrooms.ogg"
+    },
+    {
+        "name": "toomanymushrooms1.ogg",
+        "type": "file",
+        "path": "effects\\toomanymushrooms1.ogg"
+    },
+    {
+        "name": "trifolightloop.ogg",
+        "type": "file",
+        "path": "effects\\trifolightloop.ogg"
+    },
+    {
+        "name": "turnoff.ogg",
+        "type": "file",
+        "path": "effects\\turnoff.ogg"
+    },
+    {
+        "name": "turnon.ogg",
+        "type": "file",
+        "path": "effects\\turnon.ogg"
+    },
+    {
+        "name": "tut_1_3.ogg",
+        "type": "file",
+        "path": "effects\\tut_1_3.ogg"
+    },
+    {
+        "name": "tut_1_4.ogg",
+        "type": "file",
+        "path": "effects\\tut_1_4.ogg"
+    },
+    {
+        "name": "uglyspeaking-01.ogg",
+        "type": "file",
+        "path": "effects\\uglyspeaking-01.ogg"
+    },
+    {
+        "name": "uglyspeaking-02.ogg",
+        "type": "file",
+        "path": "effects\\uglyspeaking-02.ogg"
+    },
+    {
+        "name": "uglyspeaking-03.ogg",
+        "type": "file",
+        "path": "effects\\uglyspeaking-03.ogg"
+    },
+    {
+        "name": "uglyspeaking-04.ogg",
+        "type": "file",
+        "path": "effects\\uglyspeaking-04.ogg"
+    },
+    {
+        "name": "uglyspeaking-05.ogg",
+        "type": "file",
+        "path": "effects\\uglyspeaking-05.ogg"
+    },
+    {
+        "name": "uglyspeaking-06.ogg",
+        "type": "file",
+        "path": "effects\\uglyspeaking-06.ogg"
+    },
+    {
+        "name": "uglyspeaking-07.ogg",
+        "type": "file",
+        "path": "effects\\uglyspeaking-07.ogg"
+    },
+    {
+        "name": "uglyspeaking-08.ogg",
+        "type": "file",
+        "path": "effects\\uglyspeaking-08.ogg"
+    },
+    {
+        "name": "uu_wa_a_a_a.ogg",
+        "type": "file",
+        "path": "effects\\uu_wa_a_a_a.ogg"
+    },
+    {
+        "name": "vehicletp.ogg",
+        "type": "file",
+        "path": "effects\\vehicletp.ogg"
+    },
+    {
+        "name": "wa_warp.ogg",
+        "type": "file",
+        "path": "effects\\wa_warp.ogg"
+    },
+    {
+        "name": "wa_warpstart.ogg",
+        "type": "file",
+        "path": "effects\\wa_warpstart.ogg"
+    },
+    {
+        "name": "warpbox_closed.ogg",
+        "type": "file",
+        "path": "effects\\warpbox_closed.ogg"
+    },
+    {
+        "name": "warpbox_closing.ogg",
+        "type": "file",
+        "path": "effects\\warpbox_closing.ogg"
+    },
+    {
+        "name": "warpbox_impact_0001.ogg",
+        "type": "file",
+        "path": "effects\\warpbox_impact_0001.ogg"
+    },
+    {
+        "name": "warpbox_impact_0002.ogg",
+        "type": "file",
+        "path": "effects\\warpbox_impact_0002.ogg"
+    },
+    {
+        "name": "warpbox_impact_0003.ogg",
+        "type": "file",
+        "path": "effects\\warpbox_impact_0003.ogg"
+    },
+    {
+        "name": "warpbox_open.ogg",
+        "type": "file",
+        "path": "effects\\warpbox_open.ogg"
+    },
+    {
+        "name": "warpbox_opened.ogg",
+        "type": "file",
+        "path": "effects\\warpbox_opened.ogg"
+    },
+    {
+        "name": "warpbox_tile.ogg",
+        "type": "file",
+        "path": "effects\\warpbox_tile.ogg"
+    },
+    {
+        "name": "waterent_attack1.ogg",
+        "type": "file",
+        "path": "effects\\waterent_attack1.ogg"
+    },
+    {
+        "name": "waterent_attack2.ogg",
+        "type": "file",
+        "path": "effects\\waterent_attack2.ogg"
+    },
+    {
+        "name": "waterent_attack3.ogg",
+        "type": "file",
+        "path": "effects\\waterent_attack3.ogg"
+    },
+    {
+        "name": "waterent_init.ogg",
+        "type": "file",
+        "path": "effects\\waterent_init.ogg"
+    },
+    {
+        "name": "waterent_loop.ogg",
+        "type": "file",
+        "path": "effects\\waterent_loop.ogg"
+    },
+    {
+        "name": "waterent_pull.ogg",
+        "type": "file",
+        "path": "effects\\waterent_pull.ogg"
+    },
+    {
+        "name": "waterleakloop.ogg",
+        "type": "file",
+        "path": "effects\\waterleakloop.ogg"
+    },
+    {
+        "name": "waterriverloop.ogg",
+        "type": "file",
+        "path": "effects\\waterriverloop.ogg"
+    },
+    {
+        "name": "watershowerloop.ogg",
+        "type": "file",
+        "path": "effects\\watershowerloop.ogg"
+    },
+    {
+        "name": "weapon_empty.ogg",
+        "type": "file",
+        "path": "effects\\weapon_empty.ogg"
+    },
+    {
+        "name": "weapon_empty_2.ogg",
+        "type": "file",
+        "path": "effects\\weapon_empty_2.ogg"
+    },
+    {
+        "name": "weld_a.ogg",
+        "type": "file",
+        "path": "effects\\weld_a.ogg"
+    },
+    {
+        "name": "weld_b.ogg",
+        "type": "file",
+        "path": "effects\\weld_b.ogg"
+    },
+    {
+        "name": "wolfhowl.ogg",
+        "type": "file",
+        "path": "effects\\wolfhowl.ogg"
+    },
+    {
+        "name": "wood_box_break1.ogg",
+        "type": "file",
+        "path": "effects\\wood_box_break1.ogg"
+    },
+    {
+        "name": "woodchipper_chiploop.ogg",
+        "type": "file",
+        "path": "effects\\woodchipper_chiploop.ogg"
+    },
+    {
+        "name": "woodchipper_loop.ogg",
+        "type": "file",
+        "path": "effects\\woodchipper_loop.ogg"
+    },
+    {
+        "name": "yoilet.ogg",
+        "type": "file",
+        "path": "effects\\yoilet.ogg"
+    },
+    {
+        "name": "zap-zapzap.ogg",
+        "type": "file",
+        "path": "effects\\zap-zapzap.ogg"
+    },
+    {
+        "name": "fireexplosion.ogg",
+        "type": "file",
+        "path": "interface\\fireexplosion.ogg"
+    },
+    {
+        "name": "firetank_armmoveloop.ogg",
+        "type": "file",
+        "path": "interface\\firetank_armmoveloop.ogg"
+    },
+    {
+        "name": "firetank_box_ambience.ogg",
+        "type": "file",
+        "path": "interface\\firetank_box_ambience.ogg"
+    },
+    {
+        "name": "firetank_deployingloop.ogg",
+        "type": "file",
+        "path": "interface\\firetank_deployingloop.ogg"
+    },
+    {
+        "name": "firetank_engineloop.ogg",
+        "type": "file",
+        "path": "interface\\firetank_engineloop.ogg"
+    },
+    {
+        "name": "firetank_enginestart.ogg",
+        "type": "file",
+        "path": "interface\\firetank_enginestart.ogg"
+    },
+    {
+        "name": "firetank_fireloop.ogg",
+        "type": "file",
+        "path": "interface\\firetank_fireloop.ogg"
+    },
+    {
+        "name": "firetank_gunmoveloop.ogg",
+        "type": "file",
+        "path": "interface\\firetank_gunmoveloop.ogg"
+    },
+    {
+        "name": "firetank_loop.ogg",
+        "type": "file",
+        "path": "interface\\firetank_loop.ogg"
+    },
+    {
+        "name": "firetank_ping.ogg",
+        "type": "file",
+        "path": "interface\\firetank_ping.ogg"
+    },
+    {
+        "name": "firetank_zaxismoveloop.ogg",
+        "type": "file",
+        "path": "interface\\firetank_zaxismoveloop.ogg"
+    },
+    {
+        "name": "qweqwe.tga",
+        "type": "file",
+        "path": "interface\\qweqwe.tga"
+    },
+    {
+        "name": "use.ogg",
+        "type": "file",
+        "path": "interface\\use.ogg"
+    },
+    {
+        "name": "use_deny.ogg",
+        "type": "file",
+        "path": "interface\\use_deny.ogg"
+    },
+    {
+        "name": "aaa_a_eee_e.ogg",
+        "type": "file",
+        "path": "music\\aaa_a_eee_e.ogg"
+    },
+    {
+        "name": "amb2_day.ogg",
+        "type": "file",
+        "path": "music\\amb2_day.ogg"
+    },
+    {
+        "name": "amb2_evening.ogg",
+        "type": "file",
+        "path": "music\\amb2_evening.ogg"
+    },
+    {
+        "name": "amb2_morning.ogg",
+        "type": "file",
+        "path": "music\\amb2_morning.ogg"
+    },
+    {
+        "name": "amb2_night.ogg",
+        "type": "file",
+        "path": "music\\amb2_night.ogg"
+    },
+    {
+        "name": "assfuckingtechno.ogg",
+        "type": "file",
+        "path": "music\\assfuckingtechno.ogg"
+    },
+    {
+        "name": "dickholegaming.ogg",
+        "type": "file",
+        "path": "music\\dickholegaming.ogg"
+    },
+    {
+        "name": "do_not_play.ogg",
+        "type": "file",
+        "path": "music\\do_not_play.ogg"
+    },
+    {
+        "name": "eeaaa_ae_ae_ae_a_eaaa.ogg",
+        "type": "file",
+        "path": "music\\eeaaa_ae_ae_ae_a_eaaa.ogg"
+    },
+    {
+        "name": "erieloop.ogg",
+        "type": "file",
+        "path": "music\\erieloop.ogg"
+    },
+    {
+        "name": "evening0001.ogg",
+        "type": "file",
+        "path": "music\\evening0001.ogg"
+    },
+    {
+        "name": "evilconsumes.ogg",
+        "type": "file",
+        "path": "music\\evilconsumes.ogg"
+    },
+    {
+        "name": "firetank_track.ogg",
+        "type": "file",
+        "path": "music\\firetank_track.ogg"
+    },
+    {
+        "name": "mc_music.ogg",
+        "type": "file",
+        "path": "music\\mc_music.ogg"
+    },
+    {
+        "name": "morning0001.ogg",
+        "type": "file",
+        "path": "music\\morning0001.ogg"
+    },
+    {
+        "name": "muchspook.ogg",
+        "type": "file",
+        "path": "music\\muchspook.ogg"
+    },
+    {
+        "name": "murderfurtheme_st1.ogg",
+        "type": "file",
+        "path": "music\\murderfurtheme_st1.ogg"
+    },
+    {
+        "name": "murderfurtheme_st2.ogg",
+        "type": "file",
+        "path": "music\\murderfurtheme_st2.ogg"
+    },
+    {
+        "name": "murderfurtheme_st3.ogg",
+        "type": "file",
+        "path": "music\\murderfurtheme_st3.ogg"
+    },
+    {
+        "name": "murderfurthemeplaceholder.ogg",
+        "type": "file",
+        "path": "music\\murderfurthemeplaceholder.ogg"
+    },
+    {
+        "name": "newmaxwelldeadassremixnocopyrightfuckoff.ogg",
+        "type": "file",
+        "path": "music\\newmaxwelldeadassremixnocopyrightfuckoff.ogg"
+    },
+    {
+        "name": "night0001.ogg",
+        "type": "file",
+        "path": "music\\night0001.ogg"
+    },
+    {
+        "name": "noon0001.ogg",
+        "type": "file",
+        "path": "music\\noon0001.ogg"
+    },
+    {
+        "name": "qweqwe.tga",
+        "type": "file",
+        "path": "music\\qweqwe.tga"
+    },
+    {
+        "name": "skelebonertheme.ogg",
+        "type": "file",
+        "path": "music\\skelebonertheme.ogg"
+    },
+    {
+        "name": "votv_0001.ogg",
+        "type": "file",
+        "path": "music\\votv_0001.ogg"
+    },
+    {
+        "name": "achievement.ogg",
+        "type": "file",
+        "path": "ui\\achievement.ogg"
+    },
+    {
+        "name": "buttonclick.ogg",
+        "type": "file",
+        "path": "ui\\buttonclick.ogg"
+    },
+    {
+        "name": "buttonclickrelease.ogg",
+        "type": "file",
+        "path": "ui\\buttonclickrelease.ogg"
+    },
+    {
+        "name": "buttonrollover.ogg",
+        "type": "file",
+        "path": "ui\\buttonrollover.ogg"
+    },
+    {
+        "name": "crankflashlight.ogg",
+        "type": "file",
+        "path": "ui\\crankflashlight.ogg"
+    },
+    {
+        "name": "deadtone.ogg",
+        "type": "file",
+        "path": "ui\\deadtone.ogg"
+    },
+    {
+        "name": "eat_crunchy_1.ogg",
+        "type": "file",
+        "path": "ui\\eat_crunchy_1.ogg"
+    },
+    {
+        "name": "eat_crunchy_2.ogg",
+        "type": "file",
+        "path": "ui\\eat_crunchy_2.ogg"
+    },
+    {
+        "name": "eat_crunchy_3.ogg",
+        "type": "file",
+        "path": "ui\\eat_crunchy_3.ogg"
+    },
+    {
+        "name": "eat_drink_1.ogg",
+        "type": "file",
+        "path": "ui\\eat_drink_1.ogg"
+    },
+    {
+        "name": "eat_drink_2.ogg",
+        "type": "file",
+        "path": "ui\\eat_drink_2.ogg"
+    },
+    {
+        "name": "eat_drink_3.ogg",
+        "type": "file",
+        "path": "ui\\eat_drink_3.ogg"
+    },
+    {
+        "name": "eat_juicy_1.ogg",
+        "type": "file",
+        "path": "ui\\eat_juicy_1.ogg"
+    },
+    {
+        "name": "eat_juicy_2.ogg",
+        "type": "file",
+        "path": "ui\\eat_juicy_2.ogg"
+    },
+    {
+        "name": "eat_juicy_3.ogg",
+        "type": "file",
+        "path": "ui\\eat_juicy_3.ogg"
+    },
+    {
+        "name": "eat_soft_1.ogg",
+        "type": "file",
+        "path": "ui\\eat_soft_1.ogg"
+    },
+    {
+        "name": "eat_soft_2.ogg",
+        "type": "file",
+        "path": "ui\\eat_soft_2.ogg"
+    },
+    {
+        "name": "eat_soft_3.ogg",
+        "type": "file",
+        "path": "ui\\eat_soft_3.ogg"
+    },
+    {
+        "name": "hungry-01.ogg",
+        "type": "file",
+        "path": "ui\\hungry-01.ogg"
+    },
+    {
+        "name": "hungry-02.ogg",
+        "type": "file",
+        "path": "ui\\hungry-02.ogg"
+    },
+    {
+        "name": "hungry-03.ogg",
+        "type": "file",
+        "path": "ui\\hungry-03.ogg"
+    },
+    {
+        "name": "hungry-04.ogg",
+        "type": "file",
+        "path": "ui\\hungry-04.ogg"
+    },
+    {
+        "name": "hungry-05.ogg",
+        "type": "file",
+        "path": "ui\\hungry-05.ogg"
+    },
+    {
+        "name": "hungry-06.ogg",
+        "type": "file",
+        "path": "ui\\hungry-06.ogg"
+    },
+    {
+        "name": "hungry-07.ogg",
+        "type": "file",
+        "path": "ui\\hungry-07.ogg"
+    },
+    {
+        "name": "hungry-08.ogg",
+        "type": "file",
+        "path": "ui\\hungry-08.ogg"
+    },
+    {
+        "name": "hungry-09.ogg",
+        "type": "file",
+        "path": "ui\\hungry-09.ogg"
+    },
+    {
+        "name": "notif1.ogg",
+        "type": "file",
+        "path": "ui\\notif1.ogg"
+    },
+    {
+        "name": "notif2.ogg",
+        "type": "file",
+        "path": "ui\\notif2.ogg"
+    },
+    {
+        "name": "notif3.ogg",
+        "type": "file",
+        "path": "ui\\notif3.ogg"
+    },
+    {
+        "name": "notif4.ogg",
+        "type": "file",
+        "path": "ui\\notif4.ogg"
+    },
+    {
+        "name": "notif_n.ogg",
+        "type": "file",
+        "path": "ui\\notif_n.ogg"
+    },
+    {
+        "name": "notif_n2.ogg",
+        "type": "file",
+        "path": "ui\\notif_n2.ogg"
+    },
+    {
+        "name": "notif_n3.ogg",
+        "type": "file",
+        "path": "ui\\notif_n3.ogg"
+    },
+    {
+        "name": "pain_fire_0.ogg",
+        "type": "file",
+        "path": "ui\\pain_fire_0.ogg"
+    },
+    {
+        "name": "pain_fire_1.ogg",
+        "type": "file",
+        "path": "ui\\pain_fire_1.ogg"
+    },
+    {
+        "name": "pain_fire_2.ogg",
+        "type": "file",
+        "path": "ui\\pain_fire_2.ogg"
+    },
+    {
+        "name": "qweqwe.tga",
+        "type": "file",
+        "path": "ui\\qweqwe.tga"
+    },
+    {
+        "name": "terminalclick-01.ogg",
+        "type": "file",
+        "path": "ui\\terminalclick-01.ogg"
+    },
+    {
+        "name": "terminalclick-02.ogg",
+        "type": "file",
+        "path": "ui\\terminalclick-02.ogg"
+    },
+    {
+        "name": "terminalclick-03.ogg",
+        "type": "file",
+        "path": "ui\\terminalclick-03.ogg"
+    },
+    {
+        "name": "terminalclick-04.ogg",
+        "type": "file",
+        "path": "ui\\terminalclick-04.ogg"
+    },
+    {
+        "name": "terminalclick-05.ogg",
+        "type": "file",
+        "path": "ui\\terminalclick-05.ogg"
+    },
+    {
+        "name": "terminalclick-06.ogg",
+        "type": "file",
+        "path": "ui\\terminalclick-06.ogg"
+    },
+    {
+        "name": "terminalclick-07.ogg",
+        "type": "file",
+        "path": "ui\\terminalclick-07.ogg"
+    }
 ];
