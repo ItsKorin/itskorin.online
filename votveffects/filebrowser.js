@@ -71,7 +71,7 @@ document.addEventListener('DOMContentLoaded', function() {
         if (!modal) return;
         
         const img = document.getElementById('modalImage');
-        img.src = '/pub/' + path;
+        img.src = '/votveffects/pub/' + path;
         modal.style.display = 'flex';
     }
     
@@ -140,7 +140,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 thumb.setAttribute('data-full-src', file.path);
                 
                 const thumbImg = document.createElement('img');
-                thumbImg.src = '/pub/' + file.path;
+                thumbImg.src = '/votveffects/pub/' + file.path;
                 thumbImg.style.width = '64px';
                 thumbImg.style.height = '64px';
                 thumbImg.style.objectFit = 'contain';
@@ -163,7 +163,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 
                 const audio = document.createElement('audio');
                 audio.controls = true;
-                audio.src = '/pub/' + file.path;
+                audio.src = '/votveffects/pub/' + file.path;
                 
                 const infoDiv = document.createElement('div');
                 infoDiv.className = 'audio-info';
@@ -177,14 +177,14 @@ document.addEventListener('DOMContentLoaded', function() {
             nameDiv.textContent = file.name;
             
             const downloadLink = document.createElement('a');
-            downloadLink.href = '/pub/' + file.path;
+            downloadLink.href = '/votveffects/pub/' + file.path;
             downloadLink.textContent = 'Download';
             downloadLink.setAttribute('download', '');
             actionsDiv.appendChild(downloadLink);
             
             if (file.name.match(/\.(txt|md|html?|json|js|css|xml)$/i)) {
                 const viewLink = document.createElement('a');
-                viewLink.href = '/pub/' + file.path;
+                viewLink.href = '/votveffects/pub/' + file.path;
                 viewLink.textContent = 'View';
                 viewLink.target = '_blank';
                 actionsDiv.appendChild(viewLink);
